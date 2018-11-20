@@ -7,16 +7,17 @@ html, body, #root{
 .home-container{
   background-image:   url("./components/resources/background.jpg");
   background-size:    cover;
-  position:           absolute;
+  position:           fixed;
   width:              100vw;
   height:             100vh;
   min-height:         350px;
   min-width:          500px;
+  overflow-y:         scroll;
 }
 
 .btn-submit{
   font-size:          2em;
-  margin:             20vh;
+  margin:             15vh;
   transition:         0.4s;
 }
 
