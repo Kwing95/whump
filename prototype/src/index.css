@@ -16,8 +16,8 @@ html, body, #root{
 
 .btn-choice{
   min-width:          50vh;
-  font-size:          2vw;
-  margin:             5vh;
+  font-size:          calc(4pt + 0.8vh + 1vw);
+  margin:             3vh;
   margin-right:       100px;
   margin-left:        100px;
   transition:         0.4s;
@@ -30,7 +30,7 @@ html, body, #root{
 
 .choices-container{
   min-height:         100px;
-  min-width:          250px;
+  min-width:          400px;
   width:              70vw;
   margin-left:        15vw;
 }
