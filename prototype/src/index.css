@@ -10,9 +10,39 @@ html, body, #root{
   position:           absolute;
   width:              100vw;
   height:             100vh;
+  min-height:         350px;
+  min-width:          500px;
 }
 
-.info{
+.btn-choice{
+  min-width:          50vh;
+  font-size:          2vw;
+  margin:             5vh;
+  margin-right:       100px;
+  margin-left:        100px;
+  transition:         0.4s;
+}
+
+.btn-choice:hover{
+  transform:          scale(2);
+  transition:         0.4s;
+}
+
+.choices-container{
+  min-height:         100px;
+  min-width:          250px;
+  width:              70vw;
+  margin-left:        15vw;
+}
+
+.center-horizontal{
+  width:              100%;
+  text-align:         center;
+  position:           absolute;
+}
+
+.center{
+  min-width:          150px;
   text-align:         center;
   position:           absolute;
   top:                50%;
@@ -50,6 +80,6 @@ html, body, #root{
 }
 
 .homeButton{
-  transform:            scale(2);
-  margin-top:          20px;
+  transform:          scale(2);
+  margin-top:         20px;
 }
