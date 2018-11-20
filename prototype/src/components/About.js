@@ -6,7 +6,7 @@ import { aboutText } from './variables.js';
 const About = () => {
   return(
     <div class="home-container">
-      <div class="about info">
+      <div class="about center">
         <h1 class="about-text text">{ aboutText }</h1>
         <Link to='/Choice'>
           <button class="homeButton">I&apos;m ready!</button>
