@@ -1,6 +1,6 @@
 import React from "react";
-import { locations } from "./variables.js";
 
+import { locations } from "./variables.js";
 
 const Location = () => {
   return(
