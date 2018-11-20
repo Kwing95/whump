@@ -25,8 +25,7 @@ const Schedule = () => {
                 return(
                   <option value="{ loc }" >{ loc } </option>
                 ) 
-                }
-              )
+              })
             } 
           </select>
         </div>
