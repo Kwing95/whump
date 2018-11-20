@@ -24,14 +24,12 @@ html, body, #root{
 
 .home {
   min-width:          500px;
-  max-width:          500px;
   margin-left:        -250px;
 }
 
-.home-text{
+.text{
   background-color:   #00274C;
   color:              #FFCB05;
-  text-align:         center;
   padding:            10px;
   margin-bottom:      30px;
   border-radius:      10px;
@@ -40,7 +38,6 @@ html, body, #root{
 }
 
 .about{
-  font-family:        Courier;
   min-width:          500px;
   width:              75vw;
   margin-left:        -38vw;
@@ -48,13 +45,8 @@ html, body, #root{
 }
 
 .about-text{
-  background-color:   #00274C;
-  color:              #FFCB05;
+  font-family:        Courier;
   text-align:         left;
-  padding:            10px;
-  margin-bottom:      30px;
-  border-style:       solid;
-  border-width:       medium;
 }
 
 .homeButton{
