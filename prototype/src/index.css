@@ -125,15 +125,17 @@ html, body, #root{
   min-height: 30vh;
 }
 
-#sidebar {
+.sidebar {
   padding: 20px;
   background-color: #00274C;
   color: #FFCB05; 
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
+  top:        0px;
+  position:     absolute;
 }
 
-#sidebar.active {
+.sidebar.active {
   margin-left: -250px;
 }
