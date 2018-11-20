@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import { locations } from "./variables.js";
 
@@ -34,7 +35,9 @@ const Location = () => {
               </select>
             </div>
             <div class="row">
-              <button class="btn-submit text">Submit</button>
+              <Link to="/Game">
+                <button class="btn-submit text">Submit</button>
+              </Link>
             </div>
           </div>
         </div>
