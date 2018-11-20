@@ -1,0 +1,30 @@
+For Game:
+  - Implement BBB, Dude, and Lorch
+  - Implement in-game time
+  - Implement bus times
+  - BBB to Dude:
+    - Walking (2 minutes)
+  - BBB to Lorch:
+    - Walking (3 minutes)
+    Route 1: 
+      - BB (until CC Little)
+      - Walking (7 minutes)
+    Route 2: 
+      - Commuter South 
+      - Walking (1 minute)
+    Route 3: 
+      - BB (until CC Little)
+      - Commuter South
+      - Walking (1 minute)
+  - Dude to Lorch:
+    - Walking (2 minutes)
+    Route 1: 
+      - BB (until CC Little)
+      - Walking (7 minutes)
+    Route 2: 
+      - Commuter South 
+      - Walking (1 minute)
+    Route 3: 
+      - BB (until CC Little)
+      - Commuter South
+      - Walking (1 minute)
