@@ -5,11 +5,13 @@ import { gameName } from './variables.js';
 
 const Home = () => {
   return(
-    <div>
-      <h1>Welcome to { gameName }!</h1>
-      <Link to="/About">
-        <button>Get Started!</button>
-      </Link>
+    <div class="home-container">
+      <div class="home-info">
+        <h1>Welcome to { gameName }!</h1>
+        <Link to="/About">
+          <button class="homeButton">Get Started!</button>
+        </Link>
+      </div>
     </div>
   )
 }
