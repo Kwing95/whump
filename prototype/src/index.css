@@ -14,6 +14,19 @@ html, body, #root{
   min-width:          500px;
 }
 
+.btn-submit{
+  font-size:          2em;
+  margin:             20vh;
+  transition:         0.4s;
+}
+
+.btn-submit:hover{
+  background-color:   #FFCB05;
+  color:              #00274C;
+  transform:          scale(1.5);
+  transition:         0.4s;
+}
+
 .btn-choice{
   min-width:          50vh;
   font-size:          calc(4pt + 0.8vh + 1vw);
@@ -33,6 +46,21 @@ html, body, #root{
   min-width:          400px;
   width:              70vw;
   margin-left:        15vw;
+}
+
+.locatins-container{
+  min-height:         100px;
+  min-width:          400px;
+}
+
+.wrapper{
+  min-width:          500px;
+}
+
+.row{
+  min-width:          500px;
+  margin:             1px;
+  max-width:          100vw;
 }
 
 .center-horizontal{
