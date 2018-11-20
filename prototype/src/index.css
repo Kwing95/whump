@@ -5,6 +5,8 @@ html, body, #root{
 
 /*  Home  */
 .home-container{
+  background-image:   url("./components/resources/background.jpg");
+  background-size:    cover;
   position:           absolute;
   width:              100vw;
   height:             100vh;
@@ -26,6 +28,17 @@ html, body, #root{
   margin-left:        -250px;
 }
 
+.home-text{
+  background-color:   #00274C;
+  color:              #FFCB05;
+  text-align:         center;
+  padding:            10px;
+  margin-bottom:      30px;
+  border-radius:      10px;
+  border-style:       solid;
+  border-width:       medium;
+}
+
 .about{
   font-family:        Courier;
   min-width:          500px;
@@ -35,7 +48,8 @@ html, body, #root{
 }
 
 .about-text{
-  background-color:   #ffeecc;
+  background-color:   #00274C;
+  color:              #FFCB05;
   text-align:         left;
   padding:            10px;
   margin-bottom:      30px;
