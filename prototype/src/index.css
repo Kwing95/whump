@@ -7,11 +7,25 @@ html, body, #root{
 .home-container{
   background-image:   url("./components/resources/background.jpg");
   background-size:    cover;
-  position:           absolute;
+  position:           fixed;
   width:              100vw;
   height:             100vh;
   min-height:         350px;
   min-width:          500px;
+  overflow-y:         scroll;
+}
+
+.btn-submit{
+  font-size:          2em;
+  margin:             15vh;
+  transition:         0.4s;
+}
+
+.btn-submit:hover{
+  background-color:   #FFCB05;
+  color:              #00274C;
+  transform:          scale(1.5);
+  transition:         0.4s;
 }
 
 .btn-choice{
@@ -33,6 +47,21 @@ html, body, #root{
   min-width:          400px;
   width:              70vw;
   margin-left:        15vw;
+}
+
+.locatins-container{
+  min-height:         100px;
+  min-width:          400px;
+}
+
+.wrapper{
+  min-width:          500px;
+}
+
+.row{
+  min-width:          500px;
+  margin:             1px;
+  max-width:          100vw;
 }
 
 .center-horizontal{
@@ -82,4 +111,29 @@ html, body, #root{
 .homeButton{
   transform:          scale(2);
   margin-top:         20px;
+}
+
+/*** Kevin CSS ***/
+
+.sidebar-header {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-color: yellow;
+  border-style: solid;
+  border-width: 2px;
+  min-height: 30vh;
+}
+
+#sidebar {
+  padding: 20px;
+  background-color: #00274C;
+  color: #FFCB05; 
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+
+#sidebar.active {
+  margin-left: -250px;
 }
