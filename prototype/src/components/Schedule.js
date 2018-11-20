@@ -1,5 +1,7 @@
 import React from "react";
 
+import { locations } from "./variables.js";
+
 const Schedule = () => {
   return(
     <div>
@@ -17,7 +19,16 @@ const Schedule = () => {
           <input type="text"/>
         </div>
         <div class="col">
-          // Insert Wesley's code here
+          <select name="location">
+            { 
+              locations.map((loc) => { 
+                return(
+                  <option value="{ loc }" >{ loc } </option>
+                ) 
+                }
+              )
+            } 
+          </select>
         </div>
       </div>
     </div>
