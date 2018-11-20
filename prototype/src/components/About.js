@@ -7,7 +7,7 @@ const About = () => {
   return(
     <div class="home-container">
       <div class="about info">
-        <h1 class="about-text">{ aboutText }</h1>
+        <h1 class="about-text text">{ aboutText }</h1>
         <Link to='/Choice'>
           <button class="homeButton">I&apos;m ready!</button>
         </Link>
