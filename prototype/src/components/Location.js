@@ -13,8 +13,7 @@ const Location = () => {
             return(
               <option value="{ loc }" >{ loc } </option>
             ) 
-            }
-          )
+          })
         } 
       </select>
       <p>End Location</p>
@@ -24,8 +23,7 @@ const Location = () => {
             return(
               <option value="{ loc }" >{ loc } </option>
             ) 
-            }
-          )
+          })
         } 
       </select>
       <button>Submit</button>
