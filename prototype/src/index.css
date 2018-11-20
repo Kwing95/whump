@@ -30,12 +30,17 @@ html, body, #root{
   font-family:        Courier;
   min-width:          500px;
   width:              75vw;
-  margin-left:        -35vw;
+  margin-left:        -38vw;
   margin-top:         -200px;
 }
 
 .about-text{
+  background-color:   #ffeecc;
   text-align:         left;
+  padding:            10px;
+  margin-bottom:      30px;
+  border-style:       solid;
+  border-width:       medium;
 }
 
 .homeButton{
