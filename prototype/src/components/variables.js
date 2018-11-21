@@ -97,4 +97,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc};
