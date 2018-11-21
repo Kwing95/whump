@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
+import { mapper } from './variables.js';
 import { locations } from "./variables.js";
 
 let start_submission = locations[0];
@@ -15,7 +15,7 @@ const Location = () => {
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
               <h3 class="text">Start Location</h3>
-              <select name="start_loc" onChange={ (event) => {start_submission = event.target.value} }>
+              <select name="start_loc" onChange={ (event) => {start_submission = event.target.value; start_submission = mapper[start_submission];} }>
                 { 
                   locations.map((loc) => { 
                     return(
@@ -27,7 +27,7 @@ const Location = () => {
             </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
               <h3 class="text">End Location</h3>
-              <select name="end_loc" onChange={ (event) => {end_submission = event.target.value}}>
+              <select name="end_loc" onChange={ (event) => {end_submission = event.target.value; end_submission = mapper[end_submission]; }}>
                 { 
                   locations.map((loc) => { 
                     return(
