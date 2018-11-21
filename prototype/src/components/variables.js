@@ -9,8 +9,6 @@ const locations = ['BBB', 'Dude', 'Lorch'];
 let clockH = 1;
 let clockM = 15;
 
-/*
-let ID= 0;
 
 function Bus(name, freq) {
   this.name = name; // Name of the bus
@@ -42,6 +40,47 @@ function User(currLoc, prevLoc, prevTim) {
 let bursleyBaits  = new Bus("Bursley-Baits", 10);
 let commuterSouth = new Bus("Commuter South", 15);
  
-// Create bus stops
-*/
+
+//Create Buildings
+
+
+// 0
+let bbbOptions = {"Dude":2, "PierpontBBStop":3, "PierpontCSStop": 3};
+let bbb = new Buildings(0, "BBB", bbbOptions);
+
+// 1
+let pierpontOptions = {"Dude":2, "PierpontBBStop":1, "PierponstCSStop":2}
+let pierpont = new Buildings(1, "Pierpont", pierpontOptions);
+
+// 2
+let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
+let lorch = new Buildings(2, "Lorch", lorchOptions);
+
+// 3
+let dudeOptions = {"Pierpont": 2, "BBB": 2, "PierpontBBStop":3, "PierponstCSStop":2};
+let dude = new Buildings(3, "Dude", dudeOptions);
+
+
+// Create Bus Stops
+// 4
+let pierpontBBStopOptions = {"BBB": 3, "Pierpont":1, "Dude": 3};
+let pierpontBBStopBuses = [bursleyBaits];
+let pierpontBBBusStop = new BusStop(4, "Pierpont BB Bus Stop",0,pierpontBBStopBuses,pierpontBBStopOptions);
+
+//5
+let pierpontCStopOptions = {"BBB": 3, "Pierpont":1, "Dude": 3};
+let pierpontCSBusStopBuses = [commuterSouth];
+let pierpontCSBusStop = new BusStop(4, "Pierpont CS Bus Stop",0,pierpontCSBusStopBuses,pierpontCStopOptions);
+
+//6
+let ccLittleBusStopOptions = {"Lorch": 2, "EastQuadStop": 2};
+let ccLittleBusStopBuses = [commuterSouth];
+let ccLittleBusStop = new BusStop(4, "CC Little Bus Stop",0,ccLittleBusStopBuses,ccLittleBusStopOptions);
+
+//7
+let eastQuadBusStopOptions = {"CClittle": 2, "Lorch": 1};
+let eastQuadBusStopBuses = [commuterSouth];
+let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuses,eastQuadBusStopOptions);
+
+
 export { gameName, aboutText , locations, clockH, clockM};
