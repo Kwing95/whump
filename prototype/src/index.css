@@ -175,6 +175,8 @@ html, body, #root{
   overflow-y: scroll;
 }
 
+
+
 .bbb-box{
   top:	16%;
   left: 41%;
@@ -192,6 +194,35 @@ html, body, #root{
   height: 13.5%;
   width: 13.5%;
 }
+
+.walgreen-box{
+  top:	33%;
+  left: 29%;
+  position: absolute;
+  background-color: black;
+  height: 10%;
+  width: 17.8%;
+}
+
+.eecs-box{
+  top:	23.5%;
+  left: 72%;
+  position: absolute;
+  background-color: black;
+  height: 14%;
+  width: 19%;
+}
+
+.pier-box{
+  top:	51%;
+  left: 32%;
+  position: absolute;
+  background-color: black;
+  height: 7%;
+  width: 16%;
+  transform: rotate(-55deg);
+}
+
 /*
 .central-img {
   top: 0px;
