@@ -8,6 +8,7 @@ import {bbb} from './variables.js';
 import {pierpont} from './variables.js';
 import {lorch} from './variables.js';
 import {dude} from './variables.js';
+import {idc} from './variables.js';
 
 export default class Game extends Component {
 
@@ -35,15 +36,16 @@ export default class Game extends Component {
   }
 
   goToLoc(dest) {
-    passTime(idc[currentLocation].options[dest]);
-    
-    currentLocation = dest;
+    let temp = idc[this.currentLocation].options[dest];
+    this.passTime(temp);
+     
+    this.currentLocation = dest;
     
   }
 
   moveClick(event) {
     console.log(event.target.id);
-    goToLoc(idc[event.target.id])
+    this.goToLoc(idc[event.target.id])
   }
 
   render(){
@@ -64,11 +66,11 @@ export default class Game extends Component {
           </nav>
           <div class="map-panel" onClick={() => {this.passTime(10)} }>
             <div class="north-img">
-              <div class="bbb-box user-here" id="0" onClick={moveClick}></div>
-              <div class="dude-box user-here" id="2" onClick={moveClick}></div>
-                <div class="walgreen-box user-here" id="4" onClick={moveClick}></div>
-              <div class="eecs-box user-here" id="3" onClick={moveClick}></div>
-              <div class="pier-box user-here" id="1" onClick={moveClick}></div>
+              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+              <div class="dude-box user-here" id="2" onClick={this.moveClick}></div>
+                <div class="walgreen-box user-here" id="4" onClick={this.moveClick}></div>
+              <div class="eecs-box user-here" id="3" onClick={this.moveClick}></div>
+              <div class="pier-box user-here" id="1" onClick={this.moveClick}></div>
             </div>
             <div class="central-img">
               <div class="bus-stop"></div>
