@@ -4,12 +4,12 @@ const gameName = "Game Name";
 
 const aboutText = "This game is intended to help teach you how to get to your classes using the Ann Arbor busses quickly so you never have to miss class!";
 
-const locations = ['BBB', 'Dude', 'Lorch'];
+const locations = ['BBB', 'Dude', 'Pierpont', 'EECS', 'Walgreen'];
 
 let clockH = 1;
 let clockM = 15;
 
-
+/*
 function Bus(name, freq) {
   this.name = name; // Name of the bus
   this.freq = freq; // Frequency of bus arrival
@@ -24,12 +24,6 @@ function BusStop(id, name, weight, busses, options) {
   this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
 }
 
-function Buildings(id, name, options) {
-  this.id      = id;       // Unique ID (maybe should be different from building IDs too?)
-  this.name    = name;     // Name of the building
-  this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
-}
-
 function User(currLoc, prevLoc, prevTim) {
   this.currLoc = currLoc;
   this.prevLoc = prevLoc;
@@ -39,27 +33,44 @@ function User(currLoc, prevLoc, prevTim) {
 // Create busses
 let bursleyBaits  = new Bus("Bursley-Baits", 10);
 let commuterSouth = new Bus("Commuter South", 15);
- 
+*/
+
+function Buildings(id, name, options) {
+  this.id      = id;       // Unique ID (maybe should be different from building IDs too?)
+  this.name    = name;     // Name of the building
+  this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
+}
 
 //Create Buildings
-
+let mapper = {"BBB": 0, "Dude":1, "Pierpont":2, "EECS":3, "Walgren": 4};
 
 // 0
-let bbbOptions = {"Dude":2, "PierpontBBStop":3, "PierpontCSStop": 3};
+//let bbbOptions = {"Dude":2, "PierpontBBStop":3, "PierpontCSStop": 3};
+let bbbOptions = {1:2, 2:2, 3:1, 4:1};
 let bbb = new Buildings(0, "BBB", bbbOptions);
 
 // 1
-let pierpontOptions = {"Dude":2, "PierpontBBStop":1, "PierponstCSStop":2}
+//let pierpontOptions = {"Dude":2, "PierpontBBStop":1, "PierponstCSStop":2}
+let pierpontOptions = {0:2, 1:1, 3:4, 4:1};
 let pierpont = new Buildings(1, "Pierpont", pierpontOptions);
 
 // 2
-let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
-let lorch = new Buildings(2, "Lorch", lorchOptions);
+//let dudeOptions = {"Pierpont": 2, "BBB": 2, "PierpontBBStop":3, "PierponstCSStop":2};
+let dudeOptions = {0:2, 2:1, 3:3, 4:1}
+let dude = new Buildings(2, "Dude", dudeOptions);
 
 // 3
-let dudeOptions = {"Pierpont": 2, "BBB": 2, "PierpontBBStop":3, "PierponstCSStop":2};
-let dude = new Buildings(3, "Dude", dudeOptions);
+let eecsOptions = {0:2, 1:3, 2:4, 4:3};
+let eecs = new Buildings(3, "EECS", eecsOptions);
 
+//4
+let walgreenOptions = {0:1, 1:1, 2:1, 3:3};
+let walgreen = new Buildings(4, "Walgreen", walgreenOptions);
+
+/*
+// 2
+let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
+let lorch = new Buildings(2, "Lorch", lorchOptions);
 
 // Create Bus Stops
 // 4
@@ -81,6 +92,7 @@ let ccLittleBusStop = new BusStop(4, "CC Little Bus Stop",0,ccLittleBusStopBuses
 let eastQuadBusStopOptions = {"CClittle": 2, "Lorch": 1};
 let eastQuadBusStopBuses = [commuterSouth];
 let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuses,eastQuadBusStopOptions);
+*/
 
-
-export { gameName, aboutText , locations, clockH, clockM};
+export { gameName, aboutText , locations, clockH, clockM,
+         bbb, pierpont, dude, eecs, walgreen, mapper};
