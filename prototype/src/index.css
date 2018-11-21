@@ -179,9 +179,8 @@ html, body, #root{
 
 .bbb-box{
   top:	16%;
-  left: 41%;
+  left: 41.2%;
   position: absolute;
-  background-color: black;
   height: 5%;
   width: 17.5%;
 }
@@ -190,7 +189,6 @@ html, body, #root{
   top:	47.5%;
   left: 55.5%;
   position: absolute;
-  background-color: black;
   height: 13.5%;
   width: 13.5%;
 }
@@ -199,7 +197,6 @@ html, body, #root{
   top:	33%;
   left: 29%;
   position: absolute;
-  background-color: black;
   height: 10%;
   width: 17.8%;
 }
@@ -208,7 +205,6 @@ html, body, #root{
   top:	23.5%;
   left: 72%;
   position: absolute;
-  background-color: black;
   height: 14%;
   width: 19%;
 }
@@ -217,10 +213,17 @@ html, body, #root{
   top:	51%;
   left: 32%;
   position: absolute;
-  background-color: black;
   height: 7%;
   width: 16%;
   transform: rotate(-55deg);
+}
+
+.user-here{
+  background-color:   #00274C;
+  border-radius:      10px;
+  border-style:       solid;
+  border-width:       medium;
+  border-color:       #FFCB05;
 }
 
 /*
