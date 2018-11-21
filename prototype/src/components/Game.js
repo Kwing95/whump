@@ -36,16 +36,21 @@ export default class Game extends Component {
   }
 
   goToLoc(dest) {
-    let temp = idc[this.currentLocation].options[dest];
-    this.passTime(temp);
+    if (dest.id === this.currentLocation) {
+      return;
+    }
+    let temp = idc[this.currentLocation];
+    let temp2 = temp.options[dest.id];
+    console.log(temp2);
+    this.passTime(temp2);
      
-    this.currentLocation = dest;
-    
-  }
-
-  moveClick(event) {
-    console.log(event.target.id);
-    this.goToLoc(idc[event.target.id])
+    this.currentLocation = dest.id;
+    console.log(this.currentLocation);
+    console.log(start_submission);
+    console.log(end_submission);
+    if (this.currentLocation === end_submission) {
+      alert("You made it!");
+    }
   }
 
   render(){
@@ -64,13 +69,16 @@ export default class Game extends Component {
               <h3>Buses</h3>
             </div>
           </nav>
-          <div class="map-panel" onClick={() => {this.passTime(10)} }>
+          <div class="map-panel">
             <div class="north-img">
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
-              <div class="dude-box user-here" id="2" onClick={this.moveClick}></div>
-                <div class="walgreen-box user-here" id="4" onClick={this.moveClick}></div>
-              <div class="eecs-box user-here" id="3" onClick={this.moveClick}></div>
-              <div class="pier-box user-here" id="1" onClick={this.moveClick}></div>
+              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+
+              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+
+              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+
             </div>
             <div class="central-img">
               <div class="bus-stop"></div>
