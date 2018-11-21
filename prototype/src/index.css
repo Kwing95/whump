@@ -139,3 +139,17 @@ html, body, #root{
 .sidebar.active {
   margin-left: -250px;
 }
+
+.map-panel {
+  width: 100vh - 250px;
+  height: 100vh;
+  position: absolute;
+  margin-left: 250px;
+}
+
+.map-img {
+  width: 100vh;
+  height: 100vh;
+  background-image:   url("./components/resources/campusmap.jpg");
+  background-size: cover;
+}
