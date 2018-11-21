@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import campusMap from './resources/campusmap.jpg';
 import {clockH} from './variables.js';
 import {clockM} from './variables.js';
+import {start_submission} from './Location.js';
+import {end_submission} from './Location.js';
 
 export default class Game extends Component {
 
@@ -26,6 +28,8 @@ export default class Game extends Component {
       'hour' : clockH
     }));
   }
+
+  let currentLocation = 
 
   render(){
     return(
