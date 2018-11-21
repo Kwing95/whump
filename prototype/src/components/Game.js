@@ -47,7 +47,9 @@ export default class Game extends Component {
             <div class="north-img">
               <div class="bbb-box"></div>
               <div class="dude-box"></div>
-              <div class="bus-stop"></div>
+              <div class="walgreen-box"></div>
+              <div class="eecs-box"></div>
+              <div class="pier-box"></div>
             </div>
             <div class="central-img">
               <div class="bus-stop"></div>
