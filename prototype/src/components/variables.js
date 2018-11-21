@@ -6,6 +6,9 @@ const aboutText = "This game is intended to help teach you how to get to your cl
 
 const locations = ['BBB', 'Dude', 'Lorch'];
 
+let clockH = 1;
+let clockM = 15;
+
 /*
 let ID= 0;
 
@@ -41,4 +44,4 @@ let commuterSouth = new Bus("Commuter South", 15);
  
 // Create bus stops
 */
-export { gameName, aboutText , locations};
+export { gameName, aboutText , locations, clockH, clockM};
