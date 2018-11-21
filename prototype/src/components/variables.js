@@ -42,7 +42,7 @@ function Buildings(id, name, options) {
 }
 
 //Create Buildings
-let mapper = {"BBB": 0, "Dude":1, "Pierpont":2, "EECS":3, "Walgren": 4};
+let mapper = {"BBB": 0, "Dude":1, "Pierpont":2, "EECS":3, "Walgreen": 4};
 
 // 0
 //let bbbOptions = {"Dude":2, "PierpontBBStop":3, "PierpontCSStop": 3};
@@ -66,6 +66,8 @@ let eecs = new Buildings(3, "EECS", eecsOptions);
 //4
 let walgreenOptions = {0:1, 1:1, 2:1, 3:3};
 let walgreen = new Buildings(4, "Walgreen", walgreenOptions);
+
+let idc = {0: bbb, 1: dude, 2: pierpont, 3: eecs, 4: walgreen};
 
 /*
 // 2
