@@ -44,8 +44,13 @@ export default class Game extends Component {
             </div>
           </nav>
           <div class="map-panel" onClick={() => {this.passTime(10)} }>
-            <div class="map-img">
-              abc
+            <div class="north-img">
+              <div class="bbb-box"></div>
+              <div class="dude-box"></div>
+              <div class="bus-stop"></div>
+            </div>
+            <div class="central-img">
+              <div class="bus-stop"></div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 html, body, #root{
   position:           absolute;
   height:             100%;
+  background-color:   #00274C;
 }
 
 /*  Home  */
@@ -153,3 +154,54 @@ html, body, #root{
   background-image:   url("./components/resources/campusmap.jpg");
   background-size: cover;
 }
+
+.bus-stop {
+  width: 15px;
+  height: 15px;
+  background-image: url("./components/resources/bus.png");
+  background-size: cover;
+}
+
+.north-img {
+  top: 0px;
+  left:0px;
+  position: absolute;
+  width: 105vh;
+  height: 100vh;
+  background-image:   url("./components/resources/north.png");
+  background-size: 100vh;
+  background-repeat:  no-repeat;
+  visibility: visible;
+  overflow-y: scroll;
+}
+
+.bbb-box{
+  top:	16%;
+  left: 41%;
+  position: absolute;
+  background-color: black;
+  height: 5%;
+  width: 17.5%;
+}
+
+.dude-box{
+  top:	47.5%;
+  left: 55.5%;
+  position: absolute;
+  background-color: black;
+  height: 13.5%;
+  width: 13.5%;
+}
+/*
+.central-img {
+  top: 0px;
+  left:0px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image:   url("./components/resources/central.jpg");
+  background-size: 100vh;
+  background-repeat:  no-repeat;
+  visibility: hidden;
+  overflow-y: scroll;
+}*/
