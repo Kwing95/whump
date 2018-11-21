@@ -6,8 +6,39 @@ const aboutText = "This game is intended to help teach you how to get to your cl
 
 const locations = ['BBB', 'Dude', 'Lorch'];
 
-let start_location = locations[0];
+/*
+let ID= 0;
 
-let end_location = locations[0];
+function Bus(name, freq) {
+  this.name = name; // Name of the bus
+  this.freq = freq; // Frequency of bus arrival
+  //this.time = time; // Start time of the bus
+}
 
-export { gameName, aboutText , locations, start_location, end_location };
+function BusStop(id, name, weight, busses, options) {
+  this.id      = id;     // Unique ID (maybe should be different from building IDs too?)
+  this.name    = name;   // Name of the bus station
+  this.weight  = weight; // Weight of the bus station
+  this.busses  = busses; // An Array of busses
+  this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
+}
+
+function Buildings(id, name, options) {
+  this.id      = id;       // Unique ID (maybe should be different from building IDs too?)
+  this.name    = name;     // Name of the building
+  this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
+}
+
+function User(currLoc, prevLoc, prevTim) {
+  this.currLoc = currLoc;
+  this.prevLoc = prevLoc;
+  this.prevTim = prevTim;
+}
+
+// Create busses
+let bursleyBaits  = new Bus("Bursley-Baits", 10);
+let commuterSouth = new Bus("Commuter South", 15);
+ 
+// Create bus stops
+*/
+export { gameName, aboutText , locations};
