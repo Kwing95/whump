@@ -4,12 +4,17 @@ import {clockH} from './variables.js';
 import {clockM} from './variables.js';
 import {start_submission} from './Location.js';
 import {end_submission} from './Location.js';
+import {bbb} from './variables.js';
+import {pierpont} from './variables.js';
+import {lorch} from './variables.js';
+import {dude} from './variables.js';
 
 export default class Game extends Component {
 
   constructor(props){
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM};
+    this.currentLocation = start_submission;
   }
 
   passTime(minutes){
@@ -29,7 +34,17 @@ export default class Game extends Component {
     }));
   }
 
-  let currentLocation = 
+  goToLoc(dest) {
+    passTime(idc[currentLocation].options[dest]);
+    
+    currentLocation = dest;
+    
+  }
+
+  moveClick(event) {
+    console.log(event.target.id);
+    goToLoc(idc[event.target.id])
+  }
 
   render(){
     return(
@@ -49,11 +64,11 @@ export default class Game extends Component {
           </nav>
           <div class="map-panel" onClick={() => {this.passTime(10)} }>
             <div class="north-img">
-              <div class="bbb-box user-here"></div>
-              <div class="dude-box user-here"></div>
-              <div class="walgreen-box user-here"></div>
-              <div class="eecs-box user-here"></div>
-              <div class="pier-box user-here"></div>
+              <div class="bbb-box user-here" id="0" onClick={moveClick}></div>
+              <div class="dude-box user-here" id="2" onClick={moveClick}></div>
+                <div class="walgreen-box user-here" id="4" onClick={moveClick}></div>
+              <div class="eecs-box user-here" id="3" onClick={moveClick}></div>
+              <div class="pier-box user-here" id="1" onClick={moveClick}></div>
             </div>
             <div class="central-img">
               <div class="bus-stop"></div>
