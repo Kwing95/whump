@@ -1,5 +1,7 @@
 For Game:
   - Implement BBB, Dude, and Lorch
+  - Implement Pierpont (for B-Baits and Comm South)
+  - Implement CC Little and East Quad bus stop
   - Implement in-game time
   - Implement bus times
   - BBB to Dude:
