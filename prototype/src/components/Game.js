@@ -97,6 +97,8 @@ export default class Game extends Component {
 
               <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
               
+              <div class="bus-ppc bus-stop" onClick={(event) => {console.log(event.target.id);}}></div>
+              
               <div class="dot" style={this.state['css']}></div>
 
             </div>

@@ -219,6 +219,12 @@ html, body, #root{
   transform: rotate(-55deg);
 }
 
+.bus-ppc{
+  position: absolute;
+  top:	62%;
+  left: 24%;
+}
+
 .user-here{
   background-color:   #00274C;
   border-radius:      10px;
