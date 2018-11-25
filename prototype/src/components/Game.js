@@ -14,7 +14,8 @@ export default class Game extends Component {
 
   constructor(props){
     super(props);
-    this.state = {'hour' : clockH, 'minute' : clockM};
+    this.state = {'hour' : clockH, 'minute' : clockM,
+                  'css' : {'marginLeft' : 0, 'marginTop' : 0}};
     this.currentLocation = start_submission;
   }
 
@@ -35,15 +36,23 @@ export default class Game extends Component {
     }));
   }
 
-  goToLoc(dest) {
+  goToLoc(dest, event) {
     if (dest.id === this.currentLocation) {
       return;
     }
+    
     let temp = idc[this.currentLocation];
     let temp2 = temp.options[dest.id];
     console.log(temp2);
     this.passTime(temp2);
-     
+
+    let tempX = Math.round(event.clientX);
+    let tempY = Math.round(event.clientY);
+
+    this.setState(prevState => ({
+      'css': {'marginLeft': tempX - 255, 'marginTop': tempY - 5}
+    }));
+    
     this.currentLocation = dest.id;
     console.log(this.currentLocation);
     console.log(start_submission);
@@ -71,13 +80,16 @@ export default class Game extends Component {
           </nav>
           <div class="map-panel">
             <div class="north-img">
-              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
-              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
-                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+              
+              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
+              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
+                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
 
-              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
 
-              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id])}}></div>
+              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
+              
+              <div class="dot" style={this.state['css']}></div>
 
             </div>
             <div class="central-img">

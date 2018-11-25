@@ -227,6 +227,14 @@ html, body, #root{
   border-color:       #FFCB05;
 }
 
+.dot{
+  position: absolute;
+  background: #ffff00;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 /*
 .central-img {
   top: 0px;
