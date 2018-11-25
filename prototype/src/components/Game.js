@@ -69,14 +69,17 @@ export default class Game extends Component {
       alert("You made it!");
     }
   }
+  
+  changeStation(event){
+    console.log(event.target.value);
+  }
 
   render(){
     return(
       <div>
         <div class="wrapper">
           <nav class="sidebar">
-            <div class="sidebar-header">
-              <h3>Clock</h3>
+            <div class="clock-header">
               <h3> { this.state['hour'] } : { this.state['minute'] } </h3>
             </div>
             <div class="sidebar-header">
@@ -84,6 +87,12 @@ export default class Game extends Component {
             </div>
             <div class="sidebar-header">
               <h3>Buses</h3>
+              <select style={{"color" : "black"}} onChange={(event) => {this.changeStation(event);}}>
+                <option value="ppc">Pierpont Commons</option>
+                <option value="cctc">CCTC: Chemistry</option>
+                <option value="rackham">Rackham Building</option>
+                <option value="squad">South Quad</option>
+              </select>
             </div>
           </nav>
           <div class="map-panel" id="game-screen">
