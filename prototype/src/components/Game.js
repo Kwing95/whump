@@ -15,10 +15,11 @@ export default class Game extends Component {
   constructor(props){
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
-                  'css' : {'marginLeft' : 0, 'marginTop' : 0}};
+                  'css' : {'marginLeft' : 0, 'marginTop' : 0},
+                  'gameW' : 0, 'gameH' : 0};
     this.currentLocation = start_submission;
   }
-
+  
   passTime(minutes){
     let clockM = parseInt(this.state['minute']);
     let clockH = this.state['hour'];
@@ -46,11 +47,14 @@ export default class Game extends Component {
     console.log(temp2);
     this.passTime(temp2);
 
-    let tempX = Math.round(event.clientX);
-    let tempY = Math.round(event.clientY);
+    let tempX = Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth) + "%";
+    let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight) + "%";
+    
+    alert(tempX + " " + tempY);
 
+    console.log(document.getElementById("game-screen"));
     this.setState(prevState => ({
-      'css': {'marginLeft': tempX - 255, 'marginTop': tempY - 5}
+      'css': {'marginLeft': tempX, 'marginTop': tempY}
     }));
     
     this.currentLocation = dest.id;
@@ -78,7 +82,7 @@ export default class Game extends Component {
               <h3>Buses</h3>
             </div>
           </nav>
-          <div class="map-panel">
+          <div class="map-panel" id="game-screen">
             <div class="north-img">
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
