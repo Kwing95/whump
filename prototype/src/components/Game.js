@@ -16,7 +16,7 @@ export default class Game extends Component {
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'gameW' : 0, 'gameH' : 0};
+                  'posX' : 0, 'posY' : 0};
     this.currentLocation = start_submission;
   }
   
@@ -47,14 +47,18 @@ export default class Game extends Component {
     console.log(temp2);
     this.passTime(temp2);
 
-    let tempX = Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth) + "%";
-    let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight) + "%";
-    
-    alert(tempX + " " + tempY);
+    let tempX = Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
+    let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
 
-    console.log(document.getElementById("game-screen"));
+    let deltaX = Math.abs(tempX - this.state['posX']);
+    let deltaY = Math.abs(tempY - this.state['posY']);
+    let dist = Math.round(Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
+    console.log("Traveled a distance of " + dist);
+
     this.setState(prevState => ({
-      'css': {'marginLeft': tempX, 'marginTop': tempY}
+      'posX': tempX,
+      'posY': tempY,
+      'css': {'marginLeft': tempX + "%", 'marginTop': tempY + "%"}
     }));
     
     this.currentLocation = dest.id;
