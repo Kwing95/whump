@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import campusMap from './resources/campusmap.jpg';
 import {clockH} from './variables.js';
 import {clockM} from './variables.js';
+import {buses} from './variables.js';
 import {start_submission} from './Location.js';
 import {end_submission} from './Location.js';
 import {bbb} from './variables.js';
@@ -16,7 +17,7 @@ export default class Game extends Component {
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'posX' : 0, 'posY' : 0};
+                  'posX' : 0, 'posY' : 0, 'station' : 'ppc'};
     this.currentLocation = start_submission;
   }
   
@@ -93,6 +94,12 @@ export default class Game extends Component {
                 <option value="rackham">Rackham Building</option>
                 <option value="squad">South Quad</option>
               </select>
+              <table>
+                <tr>
+                  { Object.keys(buses[this.state['station']]) }
+                  { Object.values(buses[this.state['station']]) }
+                </tr>
+              </table>
             </div>
           </nav>
           <div class="map-panel" id="game-screen">

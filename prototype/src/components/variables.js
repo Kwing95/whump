@@ -69,6 +69,19 @@ let walgreen = new Buildings(4, "Walgreen", walgreenOptions);
 
 let idc = {0: bbb, 1: dude, 2: pierpont, 3: eecs, 4: walgreen};
 
+function rand(minimum, maximum){
+  return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+}
+
+let buses = {"ppc": {"Com North": rand(0, 7),
+                     "B-Baits" : rand(0, 5),
+                     "Com South": rand(0, 7),
+                     "Northwood": rand(0, 7)},
+             "cctc": {"Com North": rand(0, 7),
+                      "B-Baits": rand(0, 5),
+                      "Com South": rand(0, 7),
+                      "Northwood": rand(0, 7)}};
+
 /*
 // 2
 let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
@@ -97,4 +110,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses};
