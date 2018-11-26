@@ -72,7 +72,10 @@ export default class Game extends Component {
   }
   
   changeStation(event){
-    console.log(event.target.value);
+    let temp = event.target.value;
+    this.setState(prevState => ({
+      'station' : temp
+    }));
   }
 
   createTable(){
