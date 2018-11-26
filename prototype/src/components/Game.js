@@ -87,12 +87,27 @@ export default class Game extends Component {
       'station' : temp
     }));
   }
+  
+  boardBus(station, bus){
+    if(this.currentLocation === station){
+      alert("Boarded " + bus + " at " + station);
+    } else {
+      alert("You must be at the station to board a bus there.");
+    }
+  }
 
   createTable(){
     let table = [];
     for(let i = 0; i < Object.keys(buses[this.state['station']]).length; ++i){
       let row = [];
-      row.push(<td>{Object.keys(buses[this.state['station']])[i]}</td>);
+      row.push(<td onClick={() => {this.boardBus(this.state['station'],                 
+                                                 Object.keys(buses[this.state['station']])[i])
+                                  }
+                           }>
+                 <b><u>
+                   {Object.keys(buses[this.state['station']])[i]}
+                 </u></b>
+               </td>);
       row.push(<td>{Object.values(buses[this.state['station']])[i][1]}</td>);
       table.push(<tr>{row}</tr>);
     }
