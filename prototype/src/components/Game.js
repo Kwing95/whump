@@ -109,6 +109,16 @@ export default class Game extends Component {
             </div>
             <div class="sidebar-header">
               <h3>Class Schedule</h3>
+              <table class="schedule">
+                <tr>
+                  <td>Starting</td>
+                  <td>{start_submission}</td>
+                </tr>
+                <tr>
+                  <td>Destination</td>
+                  <td>{end_submission}</td>
+                </tr>
+              </table>
             </div>
             <div class="sidebar-header">
               <h3>Buses</h3>
