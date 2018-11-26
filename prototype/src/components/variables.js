@@ -73,14 +73,18 @@ function rand(minimum, maximum){
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
 }
 
-let buses = {"ppc": {"Com North": rand(0, 7),
-                     "B-Baits" : rand(0, 5),
-                     "Com South": rand(0, 7),
-                     "Northwood": rand(0, 7)},
-             "cctc": {"Com North": rand(0, 7),
-                      "B-Baits": rand(0, 5),
-                      "Com South": rand(0, 7),
-                      "Northwood": rand(0, 7)}};
+let buses = {"ppc": {"Com North": [7, rand(0, 7)],
+                     "B-Baits" : [5, rand(0, 5)],
+                     "Com South": [7, rand(0, 7)],
+                     "Northwood": [7, rand(0, 7)]},
+             "cctc": {"Com North": [7, rand(0, 7)],
+                      "B-Baits": [5, rand(0, 5)],
+                      "Com South": [7, rand(0, 7)],
+                      "Northwood": [7, rand(0, 7)]},
+             "rackham": {"Com South" : [7, rand(0, 7)],
+                         "Northwood" : [7, rand(0, 7)],
+                         "B-Baits" : [5, rand(0, 5)]},
+             "squad": {"Com South": [7, rand(0, 7)]}};
 
 /*
 // 2

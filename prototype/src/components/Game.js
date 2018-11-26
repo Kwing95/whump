@@ -22,6 +22,16 @@ export default class Game extends Component {
   }
   
   passTime(minutes){
+  
+    for(let station in buses){
+      for(let bus in buses[station]){
+        buses[station][bus][1] -= minutes;
+        while(buses[station][bus][1] < 0){
+          buses[station][bus][1] += buses[station][bus][0];
+        }
+      }
+    }
+  
     let clockM = parseInt(this.state['minute']);
     let clockH = this.state['hour'];
     clockM += minutes;
@@ -83,7 +93,7 @@ export default class Game extends Component {
     for(let i = 0; i < Object.keys(buses[this.state['station']]).length; ++i){
       let row = [];
       row.push(<td>{Object.keys(buses[this.state['station']])[i]}</td>);
-      row.push(<td>{Object.values(buses[this.state['station']])[i]}</td>);
+      row.push(<td>{Object.values(buses[this.state['station']])[i][1]}</td>);
       table.push(<tr>{row}</tr>);
     }
     return table;
