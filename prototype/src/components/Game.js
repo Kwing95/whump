@@ -75,6 +75,17 @@ export default class Game extends Component {
     console.log(event.target.value);
   }
 
+  createTable(){
+    let table = [];
+    for(let i = 0; i < Object.keys(buses[this.state['station']]).length; ++i){
+      let row = [];
+      row.push(<td>{Object.keys(buses[this.state['station']])[i]}</td>);
+      row.push(<td>{Object.values(buses[this.state['station']])[i]}</td>);
+      table.push(<tr>{row}</tr>);
+    }
+    return table;
+  }
+
   render(){
     return(
       <div>
@@ -95,10 +106,7 @@ export default class Game extends Component {
                 <option value="squad">South Quad</option>
               </select>
               <table>
-                <tr>
-                  { Object.keys(buses[this.state['station']]) }
-                  { Object.values(buses[this.state['station']]) }
-                </tr>
+                {this.createTable()}
               </table>
             </div>
           </nav>
