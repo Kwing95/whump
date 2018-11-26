@@ -105,7 +105,8 @@ export default class Game extends Component {
                 <option value="rackham">Rackham Building</option>
                 <option value="squad">South Quad</option>
               </select>
-              <table>
+
+              <table class="schedule">
                 {this.createTable()}
               </table>
             </div>
