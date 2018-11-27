@@ -79,7 +79,7 @@ export default class Game extends Component {
     let deltaX = Math.abs(tempX - this.state['posX']);
     let deltaY = Math.abs(tempY - this.state['posY']);
     let dist = Math.round(Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
-    this.passTime(Math.ceil(dist / 12));
+    this.passTime(Math.ceil(dist / 14));
     console.log("Traveled a distance of " + dist);
 
     this.setState(prevState => ({
@@ -111,8 +111,8 @@ export default class Game extends Component {
     }
   }
   
-  busTravel(){
-  
+  busTravel(dest){
+    alert("Traveling to " + dest);
   }
 
   scheduleTable(){
@@ -137,7 +137,7 @@ export default class Game extends Component {
     let table = [];
     for(let busStop in bbaitsStops[this.currentLocation]){
       let row = [];
-      row.push(<td onClick={() => {this.busTravel();
+      row.push(<td onClick={() => {this.busTravel(busStop);
                                   }
                            }>
                  <b><u>
