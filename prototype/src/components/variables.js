@@ -100,7 +100,16 @@ let cnStops = ["Crisler", "Trans Gate", "Facil Serv",
                "Cooley", "Francois-Xavier", "Hayward/Hubbard",
                "Huron/Hubbard", "Glazier W", "Glazier N"];
 let cnTimes = [1, 1, 1, 1, 3, 1, 2, 1, 1, 1, 2, 1, 8, 1, 1, 2, 2, 1, 4, 2, 0];
-let routes = {"Com North": [cnStops, cnTimes]};
+let csStops = ["Glazier N", "Glazier E", "VA Hospital",
+               "Cooley", "Pierpont", "Cancer Center", "Taubman",
+               "Mott", "Cardiovascular", "Biomed Sci",
+               "Rackham", "CCTC: Chemistry", "East Quad",
+               "Shapiro", "Union", "South Quad",
+               "IMSB", "Inst Cont Legal Edu", "Crisler SC-5",
+               "Crisler SC-7"];
+let csTimes = [1, 3, 2, 1, 4, 1, 1, 1, 1, 6, 2, 8, 2, 1, 2, 4, 3, 3, 2, 0];
+
+let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes]};
 
 /*
 // 2
