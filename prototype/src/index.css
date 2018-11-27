@@ -264,6 +264,7 @@ html, body, #root{
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  border: 2px solid #00274C;
 }
 
 .schedule{

@@ -105,6 +105,7 @@ export default class Game extends Component {
   boardBus(station, bus){
     if(this.currentLocation === station){
       alert("Boarded " + bus + " at " + station);
+      
     } else {
       alert("You must be at the station to board a bus there.");
     }
@@ -140,11 +141,13 @@ export default class Game extends Component {
                                   }
                            }>
                  <b><u>
-                   {bbaitsStops[this.currentLocation]}
+                   {busStop}
                  </u></b>
                </td>);
       row.push(<td>{bbaitsStops[this.currentLocation][busStop]}</td>);
+      table.push(<tr>{row}</tr>);
     }
+    return table;
   }
 
   render(){
@@ -161,6 +164,10 @@ export default class Game extends Component {
                 <tr>
                   <td>Starting</td>
                   <td>{start_submission}</td>
+                </tr>
+                <tr>
+                  <td>Current</td>
+                  <td>{this.currentLocation}</td>
                 </tr>
                 <tr>
                   <td>Destination</td>
@@ -206,6 +213,12 @@ export default class Game extends Component {
             <div class="bus-panel"
                  style={{'visibility': (this.showBuses ? 'visible' : 'hidden')}}>
               <h4><b>Select your destination</b></h4>
+              <div>
+                <p>Click a route to see available stops.</p>
+                <table class="schedule">
+                  {this.stopTable()}
+                </table>
+              </div>
             </div>
             
           </div>
