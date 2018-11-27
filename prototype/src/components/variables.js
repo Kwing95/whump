@@ -89,6 +89,10 @@ let buses = {"ppc-bus": {"Com North": [7, rand(0, 7)],
 let bbaitsStops = {"ppc-bus": {"rackham": 12, "cctc": 14},
                    "rackham-bus": {"cctc": 2, "ppc": 14},
                    "cctc-bus": {"ppc": 12, "rackham": 24}};
+                   
+let cnStops = {"cctc": {"ppc": 12, "chrys": 13},
+               "ppc": {"chrys": 1, "cctc": 20},
+               "chrys": {"cctc": 19, "ppc": 40}};
 
 /*
 // 2

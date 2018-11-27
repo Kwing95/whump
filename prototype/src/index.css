@@ -250,6 +250,12 @@ html, body, #root{
   left: 23%;
 }
 
+.bus-chrys{
+  position: absolute;
+  top:	66%;
+  left: 48%;
+}
+
 .user-here{
   background-color:   #00274C;
   border-radius:      10px;

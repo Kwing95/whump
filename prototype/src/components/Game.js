@@ -200,6 +200,7 @@ export default class Game extends Component {
               <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("ppc", event); event.stopPropagation();}}></div>
               
               <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc("ppc-bus", event); event.stopPropagation();}}></div>
+              <div class="bus-chrys bus-stop" onClick={(event) => {this.goToLoc("chrys-bus", event); event.stopPropagation();}}></div>
               
               <div class="dot" style={this.state['css']}></div>
 
