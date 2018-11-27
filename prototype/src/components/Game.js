@@ -171,7 +171,7 @@ export default class Game extends Component {
             </div>
           </nav>
           <div class="map-panel" id="game-screen">
-            <div class="north-img"
+            <div class="north-img" onClick={(event) => {console.log("clicked map");}}
                  style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
