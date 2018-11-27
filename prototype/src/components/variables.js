@@ -89,10 +89,18 @@ let buses = {"ppc-bus": {"Com North": [7, rand(0, 7)],
 let bbaitsStops = {"ppc-bus": {"rackham": 12, "cctc": 14},
                    "rackham-bus": {"cctc": 2, "ppc": 14},
                    "cctc-bus": {"ppc": 12, "rackham": 24}};
-                   
-let cnStops = {"cctc": {"ppc": 12, "chrys": 13},
-               "ppc": {"chrys": 1, "cctc": 20},
-               "chrys": {"cctc": 19, "ppc": 40}};
+
+// Each number is the number of minutes to travel from that stop to the next.
+// Example: {IMSB: 3} means it takes 3 minutes to go from IMSB to Law Quad
+let cnStops = ["Crisler", "Trans Gate", "Facil Serv",
+               "Greene/Hoover", "IMSB", "Law Quad",
+               "Union", "Kraus", "CCTC: Chemistry",
+               "Couzens", "Markley", "Taubman",
+               "Cancer Center", "Fuller Rd", "Pierpont",
+               "Cooley", "Francois-Xavier", "Hayward/Hubbard",
+               "Huron/Hubbard", "Glazier W", "Glazier N"];
+let cnTimes = [1, 1, 1, 1, 3, 1, 2, 1, 1, 1, 2, 1, 8, 1, 1, 2, 2, 1, 4, 2, 0];
+let routes = {"Com North": [cnStops, cnTimes]};
 
 /*
 // 2
@@ -122,4 +130,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, bbaitsStops};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, bbaitsStops, routes};

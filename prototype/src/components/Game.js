@@ -11,6 +11,7 @@ import {pierpont} from './variables.js';
 import {lorch} from './variables.js';
 import {dude} from './variables.js';
 import {idc} from './variables.js';
+import {routes} from './variables.js';
 
 export default class Game extends Component {
 
@@ -134,8 +135,26 @@ export default class Game extends Component {
   }
   
   stopTable(){
+    let stop = "Com North";
+    let indexOfCurrentStop = 0;
     let table = [];
-    for(let busStop in bbaitsStops[this.currentLocation]){
+    for(let i = 0; i < routes[stop][0].length; ++i){
+      let row = [];
+      row.push(<td onClick={() => {this.busTravel(routes[stop][i]);
+                                  }
+                           }>
+                 <b><u>
+                   {routes[stop][0][i]}
+                 </u></b>
+               </td>);
+      let travelTime = 0;
+      for(let j = indexOfCurrentStop; j < i; ++j){
+        travelTime += routes[stop][1][j];
+      }
+      row.push(<tr>{travelTime}</tr>);
+      table.push(<tr>{row}</tr>);
+    }
+    /*for(let busStop in bbaitsStops[this.currentLocation]){
       let row = [];
       row.push(<td onClick={() => {this.busTravel(busStop);
                                   }
@@ -146,7 +165,7 @@ export default class Game extends Component {
                </td>);
       row.push(<td>{bbaitsStops[this.currentLocation][busStop]}</td>);
       table.push(<tr>{row}</tr>);
-    }
+    }*/
     return table;
   }
 

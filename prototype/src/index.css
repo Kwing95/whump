@@ -278,7 +278,7 @@ html, body, #root{
   margin: 10px;
   width: 90%;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .bus-panel{
@@ -294,7 +294,7 @@ html, body, #root{
   border-style: solid;
   border-width: 2px;
   border-radius: 10px;
-  min-height: 40vh;
+  min-height: 50vh;
   min-width: 40vh;
   display: inline-block;
   visibility: hidden;
