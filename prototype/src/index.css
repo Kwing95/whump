@@ -158,6 +158,7 @@ html, body, #root{
   height: 100vh;
   position: absolute;
   margin-left: 250px;
+  display: block;
 }
 
 .map-img {
@@ -185,6 +186,7 @@ html, body, #root{
   background-repeat:  no-repeat;
   visibility: visible;
   overflow-y: scroll;
+  display: block;
 }
 
 .central-img {
@@ -198,6 +200,7 @@ html, body, #root{
   background-repeat:  no-repeat;
   visibility: visible;
   overflow-y: scroll;
+  display: block;
 }
 
 .bbb-box{
