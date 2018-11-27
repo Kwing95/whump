@@ -250,10 +250,10 @@ html, body, #root{
   left: 23%;
 }
 
-.bus-chrys{
+.bus-cooley{
   position: absolute;
   top:	66%;
-  left: 48%;
+  left: 81%;
 }
 
 .user-here{
@@ -277,7 +277,7 @@ html, body, #root{
   padding: 10px;
   margin: 10px;
   width: 90%;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
 }
 

@@ -134,13 +134,15 @@ export default class Game extends Component {
     return table;
   }
   
-  stopTable(){
+  stopTable(currentStop){
     let stop = "Com North";
-    let indexOfCurrentStop = 0;
+    console.log(routes[stop]);
+    let indexOfCurrentStop = routes[stop][0].indexOf("Pierpont");
+    //alert(indexOfCurrentStop);
     let table = [];
-    for(let i = 0; i < routes[stop][0].length; ++i){
+    for(let i = indexOfCurrentStop + 1; i < routes[stop][0].length; ++i){
       let row = [];
-      row.push(<td onClick={() => {this.busTravel(routes[stop][i]);
+      row.push(<td onClick={() => {this.busTravel(routes[stop][0][i]);
                                   }
                            }>
                  <b><u>
@@ -218,8 +220,8 @@ export default class Game extends Component {
               <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("eecs", event); event.stopPropagation();}}></div>
               <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("ppc", event); event.stopPropagation();}}></div>
               
-              <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc("ppc-bus", event); event.stopPropagation();}}></div>
-              <div class="bus-chrys bus-stop" onClick={(event) => {this.goToLoc("chrys-bus", event); event.stopPropagation();}}></div>
+              <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc("Pierpont bus", event); event.stopPropagation();}}></div>
+              <div class="bus-cooley bus-stop" onClick={(event) => {this.goToLoc("Cooley bus", event); event.stopPropagation();}}></div>
               
               <div class="dot" style={this.state['css']}></div>
 
@@ -232,6 +234,7 @@ export default class Game extends Component {
             
             <div class="bus-panel"
                  style={{'visibility': (this.showBuses ? 'visible' : 'hidden')}}>
+              <div onClick={() => {this.showBuses = false;}}>Close</div>
               <h4><b>Select your destination</b></h4>
               <div>
                 <p>Click a route to see available stops.</p>
