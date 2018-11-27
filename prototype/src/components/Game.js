@@ -3,6 +3,7 @@ import campusMap from './resources/campusmap.jpg';
 import {clockH} from './variables.js';
 import {clockM} from './variables.js';
 import {buses} from './variables.js';
+import {bbaitsStops} from './variables.js';
 import {start_submission} from './Location.js';
 import {end_submission} from './Location.js';
 import {bbb} from './variables.js';
@@ -17,7 +18,8 @@ export default class Game extends Component {
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'posX' : 0, 'posY' : 0, 'station' : 'ppc'};
+                  'posX' : 0, 'posY' : 0, 'station': 'ppc',
+                  'campus': 'north'};
     this.currentLocation = start_submission;
   }
   
@@ -95,8 +97,12 @@ export default class Game extends Component {
       alert("You must be at the station to board a bus there.");
     }
   }
+  
+  busTravel(){
+  
+  }
 
-  createTable(){
+  scheduleTable(){
     let table = [];
     for(let i = 0; i < Object.keys(buses[this.state['station']]).length; ++i){
       let row = [];
@@ -112,6 +118,21 @@ export default class Game extends Component {
       table.push(<tr>{row}</tr>);
     }
     return table;
+  }
+  
+  stopTable(){
+    let table = [];
+    for(let busStop in bbaitsStops[this.currentLocation]){
+      let row = [];
+      row.push(<td onClick={() => {this.busTravel();
+                                  }
+                           }>
+                 <b><u>
+                   {bbaitsStops[this.currentLocation]}
+                 </u></b>
+               </td>);
+      row.push(<td>{bbaitsStops[this.currentLocation][busStop]}</td>);
+    }
   }
 
   render(){
@@ -145,29 +166,35 @@ export default class Game extends Component {
               </select>
 
               <table class="schedule">
-                {this.createTable()}
+                {this.scheduleTable()}
               </table>
             </div>
           </nav>
           <div class="map-panel" id="game-screen">
-            <div class="north-img">
+            <div class="north-img"
+                 style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
               <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
                 <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
-
               <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
-
               <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc(idc[event.target.id], event)}}></div>
               
-              <div class="bus-ppc bus-stop" onClick={(event) => {console.log(event.target.id);}}></div>
+              <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc(idc[event.target.id], event)}}></div>
               
               <div class="dot" style={this.state['css']}></div>
 
             </div>
-            <div class="central-img">
+            
+            <div class="central-img"
+                 style={{'visibility': (this.state['campus'] === 'central' ? 'visible' : 'hidden')}}>
               <div class="bus-stop"></div>
             </div>
+            
+            <div class="bus-panel">
+              <h4><b>Select your destination</b></h4>
+            </div>
+            
           </div>
         </div>
       </div>

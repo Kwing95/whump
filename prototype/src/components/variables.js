@@ -85,6 +85,10 @@ let buses = {"ppc": {"Com North": [7, rand(0, 7)],
                          "Northwood" : [7, rand(0, 7)],
                          "B-Baits" : [5, rand(0, 5)]},
              "squad": {"Com South": [7, rand(0, 7)]}};
+             
+let bbaitsStops = {"ppc": {"rackham": 12, "cctc": 14},
+                   "rackham": {"cctc": 2, "ppc": 14},
+                   "cctc": {"ppc": 12, "rackham": 24}};
 
 /*
 // 2
@@ -114,4 +118,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, bbaitsStops};

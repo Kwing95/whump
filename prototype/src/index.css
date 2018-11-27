@@ -168,8 +168,8 @@ html, body, #root{
 }
 
 .bus-stop {
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   background-image: url("./components/resources/bus.png");
   background-size: cover;
 }
@@ -187,7 +187,18 @@ html, body, #root{
   overflow-y: scroll;
 }
 
-
+.central-img {
+  top: 0px;
+  left:0px;
+  position: absolute;
+  width: 105vw;
+  height: 100vh;
+  background-image:   url("./components/resources/central.jpg");
+  background-size: 100vh;
+  background-repeat:  no-repeat;
+  visibility: visible;
+  overflow-y: scroll;
+}
 
 .bbb-box{
   top:	16%;
@@ -232,8 +243,8 @@ html, body, #root{
 
 .bus-ppc{
   position: absolute;
-  top:	62%;
-  left: 24%;
+  top:	61%;
+  left: 23%;
 }
 
 .user-here{
@@ -260,16 +271,26 @@ html, body, #root{
   font-size: 18px;
 }
 
-/*
-.central-img {
+.bus-panel{
   top: 0px;
-  left:0px;
+  left: 0px;
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-image:   url("./components/resources/central.jpg");
-  background-size: 100vh;
-  background-repeat:  no-repeat;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  color: #FFCB05;
+  background-color: #00274C;
+  border-color: #FFCB05;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  min-height: 40vh;
+  min-width: 40vh;
+  display: inline-block;
   visibility: hidden;
-  overflow-y: scroll;
-}*/
+}
+
+
+
+
+
