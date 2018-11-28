@@ -20,10 +20,10 @@ export default class Game extends Component {
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
                   'posX' : 0, 'posY' : 0, 'station': 'ppc-bus',
-                  'campus': 'north'};
+                  'campus': 'north', 'route': 'Pierpont',
+                  'showBuses': false};
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
-    this.showBuses = false;
   }
   
   passTime(minutes){
@@ -55,7 +55,9 @@ export default class Game extends Component {
 
   goToLoc(loc, event) {
     this.currentLocation = loc;
-    this.showBuses = this.currentLocation.includes('bus');
+    this.setState(prevState => ({
+      'showBuses' : this.currentLocation.includes('bus')
+    }));
 
     /*if (dest.id === this.currentLocation) {
       return;
@@ -106,7 +108,9 @@ export default class Game extends Component {
   boardBus(station, bus){
     if(this.currentLocation === station){
       alert("Boarded " + bus + " at " + station);
-      
+      this.setState(prevState => ({
+        'route': station,
+      }));
     } else {
       alert("You must be at the station to board a bus there.");
     }
@@ -135,23 +139,25 @@ export default class Game extends Component {
   }
   
   stopTable(currentStop){
-    let stop = "Com North";
-    console.log(routes[stop]);
-    let indexOfCurrentStop = routes[stop][0].indexOf("Pierpont");
+    let route = "Com North";
+    //stop = this.state["route"];
+
+
+    let indexOfCurrentStop = routes[route][0].indexOf("Pierpont");
     //alert(indexOfCurrentStop);
     let table = [];
-    for(let i = indexOfCurrentStop + 1; i < routes[stop][0].length; ++i){
+    for(let i = indexOfCurrentStop + 1; i < routes[route][0].length; ++i){
       let row = [];
-      row.push(<td onClick={() => {this.busTravel(routes[stop][0][i]);
+      row.push(<td onClick={() => {this.busTravel(routes[route][0][i]);
                                   }
                            }>
                  <b><u>
-                   {routes[stop][0][i]}
+                   {routes[route][0][i]}
                  </u></b>
                </td>);
       let travelTime = 0;
       for(let j = indexOfCurrentStop; j < i; ++j){
-        travelTime += routes[stop][1][j];
+        travelTime += routes[route][1][j];
       }
       row.push(<tr>{travelTime}</tr>);
       table.push(<tr>{row}</tr>);
@@ -233,8 +239,14 @@ export default class Game extends Component {
             </div>
             
             <div class="bus-panel"
-                 style={{'visibility': (this.showBuses ? 'visible' : 'hidden')}}>
-              <div onClick={() => {this.showBuses = false;}}>Close</div>
+                 style={{'visibility': (this.state['showBuses'] ? 'visible' : 'hidden')}}>
+              <div style={{'text-align': 'right'}} onClick={(event) => {
+                    this.setState(prevState => ({
+                      'showBuses': false,
+                    }));
+                  }}>
+                Close
+              </div>
               <h4><b>Select your destination</b></h4>
               <div>
                 <p>Click a route to see available stops.</p>
