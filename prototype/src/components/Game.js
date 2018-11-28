@@ -3,7 +3,6 @@ import campusMap from './resources/campusmap.jpg';
 import {clockH} from './variables.js';
 import {clockM} from './variables.js';
 import {buses} from './variables.js';
-import {bbaitsStops} from './variables.js';
 import {start_submission} from './Location.js';
 import {end_submission} from './Location.js';
 import {bbb} from './variables.js';
@@ -19,8 +18,8 @@ export default class Game extends Component {
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'posX' : 0, 'posY' : 0, 'station': 'ppc-bus',
-                  'campus': 'north', 'route': 'Pierpont',
+                  'posX' : 0, 'posY' : 0, 'station': 'Pierpont bus',
+                  'campus': 'north', 'route': 'Com North',
                   'showBuses': false};
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
@@ -109,7 +108,7 @@ export default class Game extends Component {
     if(this.currentLocation === station){
       alert("Boarded " + bus + " at " + station);
       this.setState(prevState => ({
-        'route': station,
+        'route': bus,
       }));
     } else {
       alert("You must be at the station to board a bus there.");
@@ -139,8 +138,9 @@ export default class Game extends Component {
   }
   
   stopTable(currentStop){
-    let route = "Com North";
-    //stop = this.state["route"];
+
+    let route = this.state["route"];
+    // default: Com North
 
 
     let indexOfCurrentStop = routes[route][0].indexOf("Pierpont");
@@ -162,18 +162,6 @@ export default class Game extends Component {
       row.push(<tr>{travelTime}</tr>);
       table.push(<tr>{row}</tr>);
     }
-    /*for(let busStop in bbaitsStops[this.currentLocation]){
-      let row = [];
-      row.push(<td onClick={() => {this.busTravel(busStop);
-                                  }
-                           }>
-                 <b><u>
-                   {busStop}
-                 </u></b>
-               </td>);
-      row.push(<td>{bbaitsStops[this.currentLocation][busStop]}</td>);
-      table.push(<tr>{row}</tr>);
-    }*/
     return table;
   }
 
@@ -205,10 +193,10 @@ export default class Game extends Component {
             <div class="sidebar-header">
               <h3>Buses</h3>
               <select style={{"color" : "black"}} onChange={(event) => {this.changeStation(event);}}>
-                <option value="ppc-bus">Pierpont Commons</option>
-                <option value="cctc-bus">CCTC: Chemistry</option>
-                <option value="rackham-bus">Rackham Building</option>
-                <option value="squad-bus">South Quad</option>
+                <option value="Pierpont bus">Pierpont Commons</option>
+                <option value="CCTC bus">CCTC: Chemistry</option>
+                <option value="Rackham bus">Rackham Building</option>
+                <option value="South Quad bus">South Quad</option>
               </select>
 
               <table class="schedule">

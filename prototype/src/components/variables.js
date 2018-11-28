@@ -73,22 +73,19 @@ function rand(minimum, maximum){
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
 }
 
-let buses = {"ppc-bus": {"Com North": [7, rand(0, 7)],
+let buses = {"Pierpont bus": {"Com North": [7, rand(0, 7)],
                          "B-Baits" : [5, rand(0, 5)],
                          "Com South": [7, rand(0, 7)],
                          "Northwood": [7, rand(0, 7)]},
-             "cctc-bus": {"Com North": [7, rand(0, 7)],
+             "CCTC bus": {"Com North": [7, rand(0, 7)],
                           "B-Baits": [5, rand(0, 5)],
                           "Com South": [7, rand(0, 7)],
                           "Northwood": [7, rand(0, 7)]},
-             "rackham-bus": {"Com South" : [7, rand(0, 7)],
+             "Rackham bus": {"Com South" : [7, rand(0, 7)],
                              "Northwood" : [7, rand(0, 7)],
                              "B-Baits" : [5, rand(0, 5)]},
-             "squad-bus": {"Com South": [7, rand(0, 7)]}};
-             
-let bbaitsStops = {"ppc-bus": {"rackham": 12, "cctc": 14},
-                   "rackham-bus": {"cctc": 2, "ppc": 14},
-                   "cctc-bus": {"ppc": 12, "rackham": 24}};
+             "South Quad bus": {"Com South": [7, rand(0, 7)]}};
+
 
 // Each number is the number of minutes to travel from that stop to the next.
 // Example: {IMSB: 3} means it takes 3 minutes to go from IMSB to Law Quad
@@ -139,4 +136,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, bbaitsStops, routes};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes};
