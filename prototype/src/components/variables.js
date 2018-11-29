@@ -73,6 +73,17 @@ function rand(minimum, maximum){
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
 }
 
+let centralStops = ["Crisler", "Trans Gate", "Facil Serv",
+                    "Greene/Hoover", "IMSB", "Law Quad",
+                    "Union", "Kraus", "CCTC: Chemistry",
+                    "Couzens", "Markley", "Taubman",
+                    "Cancer Center"];
+
+let northStops = ["Fuller Rd", "Pierpont", "Cooley",
+                  "Francois-Xavier", "Hayward/Hubbard",
+                  "Huron/Hubbard", "Glazier W", "Glazier N"];
+
+
 let buses = {"Pierpont bus": {"Com North": [7, rand(0, 7)],
                          "B-Baits" : [5, rand(0, 5)],
                          "Com South": [7, rand(0, 7)],
@@ -97,6 +108,7 @@ let cnStops = ["Crisler", "Trans Gate", "Facil Serv",
                "Cooley", "Francois-Xavier", "Hayward/Hubbard",
                "Huron/Hubbard", "Glazier W", "Glazier N"];
 let cnTimes = [1, 1, 1, 1, 3, 1, 2, 1, 1, 1, 2, 1, 8, 1, 1, 2, 2, 1, 4, 2, 0];
+
 let csStops = ["Glazier N", "Glazier E", "VA Hospital",
                "Cooley", "Pierpont", "Cancer Center", "Taubman",
                "Mott", "Cardiovascular", "Biomed Sci",
@@ -106,7 +118,22 @@ let csStops = ["Glazier N", "Glazier E", "VA Hospital",
                "Crisler SC-7"];
 let csTimes = [1, 3, 2, 1, 4, 1, 1, 1, 1, 6, 2, 8, 2, 1, 2, 4, 3, 3, 2, 0];
 
-let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes]};
+let bbStops = [];
+let bbTimes = [];
+
+let oxStops = [];
+let oxTimes = [];
+
+let nwStops = [];
+let nwTimes = [];
+
+let d2Stops = ["MIDDLE OF FUCKING NOWHERE"];
+let d2Times = [9999];
+
+let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes],
+              "B-Baits": [bbStops, bbTimes], "Oxford": [oxStops, oxTimes],
+              "Northwood": [nwStops, nwTimes], "Diag to Diag": [d2Stops, d2Times],
+              "Null": [[], []]};
 
 /*
 // 2

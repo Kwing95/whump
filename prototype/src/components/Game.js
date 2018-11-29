@@ -19,7 +19,7 @@ export default class Game extends Component {
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
                   'posX' : 0, 'posY' : 0, 'station': 'Pierpont bus',
-                  'campus': 'north', 'route': 'Com North',
+                  'campus': 'north', 'route': 'Null',
                   'showBuses': false};
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
@@ -73,13 +73,21 @@ export default class Game extends Component {
     
     return;*/
 
-    let tempX = Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollHeight);
+    let ratio = this.gameScreen.current.scrollWidth / this.gameScreen.current.scrollHeight;
+    //alert((event.clientX - 250) + " / " + this.gameScreen.current.scrollWidth);
+
+    let tempX = 2 * Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
     let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
+    
+    let deltaX = Math.abs(tempX - this.state['posX']);
+    let deltaY = Math.abs(tempY - this.state['posY']);
+    
+    tempX = event.clientX - 255;
+    tempY = event.clientY - 5;
     
     //alert(document.getElementById("game-screen").scrollWidth + " " + tempX);
 
-    let deltaX = Math.abs(tempX - this.state['posX']);
-    let deltaY = Math.abs(tempY - this.state['posY']);
+
     let dist = Math.round(Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
     this.passTime(Math.ceil(dist / 14));
     console.log("Traveled a distance of " + dist);
@@ -87,7 +95,7 @@ export default class Game extends Component {
     this.setState(prevState => ({
       'posX': tempX,
       'posY': tempY,
-      'css': {'marginLeft': tempX + "%", 'marginTop': tempY + "%"}
+      'css': {'marginLeft': tempX, 'marginTop': tempY}
     }));
     
     //this.currentLocation = dest.id;
@@ -106,7 +114,6 @@ export default class Game extends Component {
   
   boardBus(station, bus){
     if(this.currentLocation === station){
-      alert("Boarded " + bus + " at " + station);
       this.setState(prevState => ({
         'route': bus,
       }));
@@ -143,7 +150,7 @@ export default class Game extends Component {
     // default: Com North
 
 
-    let indexOfCurrentStop = routes[route][0].indexOf("Pierpont");
+    let indexOfCurrentStop = routes[route][0].indexOf("Pierpont"); // FIXME
     //alert(indexOfCurrentStop);
     let table = [];
     for(let i = indexOfCurrentStop + 1; i < routes[route][0].length; ++i){
@@ -205,7 +212,7 @@ export default class Game extends Component {
             </div>
           </nav>
           <div class="map-panel" id="game-screen" ref={this.gameScreen}>
-            <div class="north-img" onClick={(event) => {this.goToLoc('none', event)}}
+            <div class="north-img" id="north" onClick={(event) => {this.goToLoc('none', event)}}
                  style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("bbb", event); event.stopPropagation();}}></div>
