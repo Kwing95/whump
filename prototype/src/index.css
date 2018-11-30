@@ -272,8 +272,8 @@ html, body, #root{
 .dot{
   position: absolute;
   background: #FFCB05;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 2px solid #00274C;
 }

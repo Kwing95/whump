@@ -135,6 +135,29 @@ let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes],
               "Northwood": [nwStops, nwTimes], "Diag to Diag": [d2Stops, d2Times],
               "Null": [[], []]};
 
+// (t)ype, (c)ampus, (x), (y), (n)ame
+function Location(type, campus, xIn, yIn, name){
+  this.t = type;
+  this.c = campus;
+  this.x = xIn;
+  this.y = yIn;
+  this.n = name;
+}
+
+// (a)bbreviations
+let a = new Object();
+
+a.ppc = new Location('STOP', 'NORTH', 24, 61, "Pierpont");
+a.cool = new Location('STOP', 'NORTH', 82, 66, "Cooley");
+
+a.walgreen = new Location('BUILDING', 'NORTH', 36, 36, 'Walgreen Drama Center');
+a.bbb = new Location('BUILDING', 'NORTH', 50, 17, 'Bob & Betty Beyster');
+a.dow = new Location('BUILDING', 'NORTH', 64, 21, 'Dow Engineering');
+a.ggbl = new Location('BUILDING', 'NORTH', 80, 18, "GG Brown Laboratory");
+a.eecs = new Location('BUILDING', 'NORTH', 78, 30, 'EECS Building');
+a.dude = new Location('BUILDING', 'NORTH', 62, 51, 'Duderstadt');
+a.ioe = new Location('BUILDING', 'NORTH', 84, 53, 'IOE Building');
+
 /*
 // 2
 let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
@@ -163,4 +186,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a};

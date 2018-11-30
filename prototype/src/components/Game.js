@@ -82,8 +82,8 @@ export default class Game extends Component {
     let deltaX = Math.abs(tempX - this.state['posX']);
     let deltaY = Math.abs(tempY - this.state['posY']);
     
-    tempX = event.clientX - 255;
-    tempY = event.clientY - 5;
+    tempX = event.clientX - 260;
+    tempY = event.clientY - 10;
     
     //alert(document.getElementById("game-screen").scrollWidth + " " + tempX);
 
@@ -91,6 +91,9 @@ export default class Game extends Component {
     let dist = Math.round(Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
     this.passTime(Math.ceil(dist / 14));
     console.log("Traveled a distance of " + dist);
+
+    // Use this to pinpoint building locations 
+    //alert(tempX + ", " + tempY);
 
     this.setState(prevState => ({
       'posX': tempX,
