@@ -135,6 +135,8 @@ let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes],
               "Northwood": [nwStops, nwTimes], "Diag to Diag": [d2Stops, d2Times],
               "Null": [[], []]};
 
+let locList = [];
+
 // (t)ype, (c)ampus, (x), (y), (n)ame
 function Location(type, campus, xIn, yIn, name){
   this.t = type;
@@ -142,6 +144,7 @@ function Location(type, campus, xIn, yIn, name){
   this.x = xIn;
   this.y = yIn;
   this.n = name;
+  locList.push(this);
 }
 
 // (a)bbreviations
@@ -186,4 +189,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a, locList};

@@ -11,6 +11,8 @@ import {lorch} from './variables.js';
 import {dude} from './variables.js';
 import {idc} from './variables.js';
 import {routes} from './variables.js';
+import {a} from './variables.js';
+import {locList} from './variables.js';
 
 export default class Game extends Component {
 
@@ -73,7 +75,7 @@ export default class Game extends Component {
     
     return;*/
 
-    let ratio = this.gameScreen.current.scrollWidth / this.gameScreen.current.scrollHeight;
+    //let ratio = this.gameScreen.current.scrollWidth / this.gameScreen.current.scrollHeight;
     //alert((event.clientX - 250) + " / " + this.gameScreen.current.scrollWidth);
 
     let tempX = 2 * Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
@@ -126,7 +128,20 @@ export default class Game extends Component {
   }
   
   busTravel(dest){
-    alert("Traveling to " + dest);
+    for(let i = 0; i < locList.length; ++i){
+      if(locList[i].n == dest){
+        alert("Traveling to " + dest);
+
+        // passTime(bus_eta + travel_time);
+        this.setState(prevState => ({
+          'posX': locList[i].x,
+          'posY': locList[i].y,
+          'css': {'marginLeft': locList[i].x + "%", 'marginTop': locList[i].y + "%"}
+        }));
+        return;
+      }
+    }
+    alert("This location has not been implemented yet.");
   }
 
   scheduleTable(){
@@ -209,14 +224,16 @@ export default class Game extends Component {
                 <option value="South Quad bus">South Quad</option>
               </select>
 
-              <table class="schedule">
+              <table class="schedule" id="schedule-table">
                 {this.scheduleTable()}
               </table>
             </div>
           </nav>
           <div class="map-panel" id="game-screen" ref={this.gameScreen}>
-            <div class="north-img" id="north" onClick={(event) => {this.goToLoc('none', event)}}
-                 style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
+            <div class="north-img"
+             id="north"
+             onClick={(event) => {this.goToLoc('none', event)}}
+             style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("bbb", event); event.stopPropagation();}}></div>
               <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("dude", event); event.stopPropagation();}}></div>
@@ -248,7 +265,7 @@ export default class Game extends Component {
               <h4><b>Select your destination</b></h4>
               <div>
                 <p>Click a route to see available stops.</p>
-                <table class="schedule">
+                <table class="schedule" id="stop-table">
                   {this.stopTable()}
                 </table>
               </div>
