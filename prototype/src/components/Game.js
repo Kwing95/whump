@@ -3,7 +3,6 @@ import campusMap from './resources/campusmap.jpg';
 import {clockH} from './variables.js';
 import {clockM} from './variables.js';
 import {buses} from './variables.js';
-import {bbaitsStops} from './variables.js';
 import {start_submission} from './Location.js';
 import {end_submission} from './Location.js';
 import {bbb} from './variables.js';
@@ -12,7 +11,8 @@ import {lorch} from './variables.js';
 import {dude} from './variables.js';
 import {idc} from './variables.js';
 import {routes} from './variables.js';
-import {mapper} from './variables.js';
+import {a} from './variables.js';
+import {locList} from './variables.js';
 
 export default class Game extends Component {
 
@@ -20,11 +20,11 @@ export default class Game extends Component {
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
                   'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'posX' : 0, 'posY' : 0, 'station': 'ppc-bus',
-                  'campus': 'north'};
+                  'posX' : 0, 'posY' : 0, 'station': 'Pierpont bus',
+                  'campus': 'north', 'route': 'Null',
+                  'showBuses': false};
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
-    this.showBuses = false;
   }
   
   passTime(minutes){
@@ -56,7 +56,9 @@ export default class Game extends Component {
 
   goToLoc(loc, event) {
     this.currentLocation = loc;
-    this.showBuses = this.currentLocation.includes('bus');
+    this.setState(prevState => ({
+      'showBuses' : this.currentLocation.includes('bus')
+    }));
 
     /*if (dest.id === this.currentLocation) {
       return;
@@ -73,21 +75,31 @@ export default class Game extends Component {
     
     return;*/
 
-    let tempX = Math.round(100 * (event.clientX - 250) / (document.getElementById("game-panel").scrollHeight + 30));
-    let tempY = Math.round(100 * (event.clientY) / (document.getElementById("game-panel").scrollHeight + 30));
+    //let ratio = this.gameScreen.current.scrollWidth / this.gameScreen.current.scrollHeight;
+    //alert((event.clientX - 250) + " / " + this.gameScreen.current.scrollWidth);
+
+    let tempX = 2 * Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
+    let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
+    let deltaX = Math.abs(tempX - this.state['posX']);
+    let deltaY = Math.abs(tempY - this.state['posY']);
+    
+    tempX = event.clientX - 260;
+    tempY = event.clientY - 10;
     
     //alert(document.getElementById("game-screen").scrollWidth + " " + tempX);
 
-    let deltaX = Math.abs(tempX - this.state['posX']);
-    let deltaY = Math.abs(tempY - this.state['posY']);
+
     let dist = Math.round(Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
     this.passTime(Math.ceil(dist / 14));
     console.log("Traveled a distance of " + dist);
 
+    // Use this to pinpoint building locations 
+    //alert(tempX + ", " + tempY);
+
     this.setState(prevState => ({
       'posX': tempX,
       'posY': tempY,
-      'css': {'marginLeft': tempX + "%", 'marginTop': tempY + "%"}
+      'css': {'marginLeft': tempX, 'marginTop': tempY}
     }));
     
     //this.currentLocation = dest.id;
@@ -107,15 +119,29 @@ export default class Game extends Component {
   
   boardBus(station, bus){
     if(this.currentLocation === station){
-      alert("Boarded " + bus + " at " + station);
-      
+      this.setState(prevState => ({
+        'route': bus,
+      }));
     } else {
       alert("You must be at the station to board a bus there.");
     }
   }
   
   busTravel(dest){
-    alert("Traveling to " + dest);
+    for(let i = 0; i < locList.length; ++i){
+      if(locList[i].n == dest){
+        alert("Traveling to " + dest);
+
+        // passTime(bus_eta + travel_time);
+        this.setState(prevState => ({
+          'posX': locList[i].x,
+          'posY': locList[i].y,
+          'css': {'marginLeft': locList[i].x + "%", 'marginTop': locList[i].y + "%"}
+        }));
+        return;
+      }
+    }
+    alert("This location has not been implemented yet.");
   }
 
   scheduleTable(){
@@ -137,39 +163,30 @@ export default class Game extends Component {
   }
   
   stopTable(currentStop){
-    let stop = "Com North";
-    console.log(routes[stop]);
-    let indexOfCurrentStop = routes[stop][0].indexOf("Pierpont");
+
+    let route = this.state["route"];
+    // default: Com North
+
+
+    let indexOfCurrentStop = routes[route][0].indexOf("Pierpont"); // FIXME
     //alert(indexOfCurrentStop);
     let table = [];
-    for(let i = indexOfCurrentStop + 1; i < routes[stop][0].length; ++i){
+    for(let i = indexOfCurrentStop + 1; i < routes[route][0].length; ++i){
       let row = [];
-      row.push(<td onClick={() => {this.busTravel(routes[stop][0][i]);
+      row.push(<td onClick={() => {this.busTravel(routes[route][0][i]);
                                   }
                            }>
                  <b><u>
-                   {routes[stop][0][i]}
+                   {routes[route][0][i]}
                  </u></b>
                </td>);
       let travelTime = 0;
       for(let j = indexOfCurrentStop; j < i; ++j){
-        travelTime += routes[stop][1][j];
+        travelTime += routes[route][1][j];
       }
       row.push(<tr>{travelTime}</tr>);
       table.push(<tr>{row}</tr>);
     }
-    /*for(let busStop in bbaitsStops[this.currentLocation]){
-      let row = [];
-      row.push(<td onClick={() => {this.busTravel(busStop);
-                                  }
-                           }>
-                 <b><u>
-                   {busStop}
-                 </u></b>
-               </td>);
-      row.push(<td>{bbaitsStops[this.currentLocation][busStop]}</td>);
-      table.push(<tr>{row}</tr>);
-    }*/
     return table;
   }
 
@@ -201,20 +218,22 @@ export default class Game extends Component {
             <div class="sidebar-header">
               <h3>Buses</h3>
               <select style={{"color" : "black"}} onChange={(event) => {this.changeStation(event);}}>
-                <option value="ppc-bus">Pierpont Commons</option>
-                <option value="cctc-bus">CCTC: Chemistry</option>
-                <option value="rackham-bus">Rackham Building</option>
-                <option value="squad-bus">South Quad</option>
+                <option value="Pierpont bus">Pierpont Commons</option>
+                <option value="CCTC bus">CCTC: Chemistry</option>
+                <option value="Rackham bus">Rackham Building</option>
+                <option value="South Quad bus">South Quad</option>
               </select>
 
-              <table class="schedule">
+              <table class="schedule" id="schedule-table">
                 {this.scheduleTable()}
               </table>
             </div>
           </nav>
           <div class="map-panel" id="game-screen" ref={this.gameScreen}>
-            <div id="game-panel" class="north-img" onClick={(event) => {this.goToLoc('none', event)}}
-                 style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
+            <div class="north-img"
+             id="north"
+             onClick={(event) => {this.goToLoc('none', event)}}
+             style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("BBB", event); event.stopPropagation();}}></div>
               <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("DUDE", event); event.stopPropagation();}}></div>
@@ -235,12 +254,18 @@ export default class Game extends Component {
             </div>
             
             <div class="bus-panel"
-                 style={{'visibility': (this.showBuses ? 'visible' : 'hidden')}}>
-              <div onClick={() => {this.showBuses = false;}}>Close</div>
+                 style={{'visibility': (this.state['showBuses'] ? 'visible' : 'hidden')}}>
+              <div style={{'text-align': 'right'}} onClick={(event) => {
+                    this.setState(prevState => ({
+                      'showBuses': false,
+                    }));
+                  }}>
+                Close
+              </div>
               <h4><b>Select your destination</b></h4>
               <div>
                 <p>Click a route to see available stops.</p>
-                <table class="schedule">
+                <table class="schedule" id="stop-table">
                   {this.stopTable()}
                 </table>
               </div>

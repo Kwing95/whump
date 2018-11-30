@@ -73,22 +73,30 @@ function rand(minimum, maximum){
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
 }
 
-let buses = {"ppc-bus": {"Com North": [7, rand(0, 7)],
+let centralStops = ["Crisler", "Trans Gate", "Facil Serv",
+                    "Greene/Hoover", "IMSB", "Law Quad",
+                    "Union", "Kraus", "CCTC: Chemistry",
+                    "Couzens", "Markley", "Taubman",
+                    "Cancer Center"];
+
+let northStops = ["Fuller Rd", "Pierpont", "Cooley",
+                  "Francois-Xavier", "Hayward/Hubbard",
+                  "Huron/Hubbard", "Glazier W", "Glazier N"];
+
+
+let buses = {"Pierpont bus": {"Com North": [7, rand(0, 7)],
                          "B-Baits" : [5, rand(0, 5)],
                          "Com South": [7, rand(0, 7)],
                          "Northwood": [7, rand(0, 7)]},
-             "cctc-bus": {"Com North": [7, rand(0, 7)],
+             "CCTC bus": {"Com North": [7, rand(0, 7)],
                           "B-Baits": [5, rand(0, 5)],
                           "Com South": [7, rand(0, 7)],
                           "Northwood": [7, rand(0, 7)]},
-             "rackham-bus": {"Com South" : [7, rand(0, 7)],
+             "Rackham bus": {"Com South" : [7, rand(0, 7)],
                              "Northwood" : [7, rand(0, 7)],
                              "B-Baits" : [5, rand(0, 5)]},
-             "squad-bus": {"Com South": [7, rand(0, 7)]}};
-             
-let bbaitsStops = {"ppc-bus": {"rackham": 12, "cctc": 14},
-                   "rackham-bus": {"cctc": 2, "ppc": 14},
-                   "cctc-bus": {"ppc": 12, "rackham": 24}};
+             "South Quad bus": {"Com South": [7, rand(0, 7)]}};
+
 
 // Each number is the number of minutes to travel from that stop to the next.
 // Example: {IMSB: 3} means it takes 3 minutes to go from IMSB to Law Quad
@@ -100,6 +108,7 @@ let cnStops = ["Crisler", "Trans Gate", "Facil Serv",
                "Cooley", "Francois-Xavier", "Hayward/Hubbard",
                "Huron/Hubbard", "Glazier W", "Glazier N"];
 let cnTimes = [1, 1, 1, 1, 3, 1, 2, 1, 1, 1, 2, 1, 8, 1, 1, 2, 2, 1, 4, 2, 0];
+
 let csStops = ["Glazier N", "Glazier E", "VA Hospital",
                "Cooley", "Pierpont", "Cancer Center", "Taubman",
                "Mott", "Cardiovascular", "Biomed Sci",
@@ -109,7 +118,48 @@ let csStops = ["Glazier N", "Glazier E", "VA Hospital",
                "Crisler SC-7"];
 let csTimes = [1, 3, 2, 1, 4, 1, 1, 1, 1, 6, 2, 8, 2, 1, 2, 4, 3, 3, 2, 0];
 
-let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes]};
+let bbStops = [];
+let bbTimes = [];
+
+let oxStops = [];
+let oxTimes = [];
+
+let nwStops = [];
+let nwTimes = [];
+
+let d2Stops = ["MIDDLE OF FUCKING NOWHERE"];
+let d2Times = [9999];
+
+let routes = {"Com North": [cnStops, cnTimes], "Com South": [csStops, csTimes],
+              "B-Baits": [bbStops, bbTimes], "Oxford": [oxStops, oxTimes],
+              "Northwood": [nwStops, nwTimes], "Diag to Diag": [d2Stops, d2Times],
+              "Null": [[], []]};
+
+let locList = [];
+
+// (t)ype, (c)ampus, (x), (y), (n)ame
+function Location(type, campus, xIn, yIn, name){
+  this.t = type;
+  this.c = campus;
+  this.x = xIn;
+  this.y = yIn;
+  this.n = name;
+  locList.push(this);
+}
+
+// (a)bbreviations
+let a = new Object();
+
+a.ppc = new Location('STOP', 'NORTH', 24, 61, "Pierpont");
+a.cool = new Location('STOP', 'NORTH', 82, 66, "Cooley");
+
+a.walgreen = new Location('BUILDING', 'NORTH', 36, 36, 'Walgreen Drama Center');
+a.bbb = new Location('BUILDING', 'NORTH', 50, 17, 'Bob & Betty Beyster');
+a.dow = new Location('BUILDING', 'NORTH', 64, 21, 'Dow Engineering');
+a.ggbl = new Location('BUILDING', 'NORTH', 80, 18, "GG Brown Laboratory");
+a.eecs = new Location('BUILDING', 'NORTH', 78, 30, 'EECS Building');
+a.dude = new Location('BUILDING', 'NORTH', 62, 51, 'Duderstadt');
+a.ioe = new Location('BUILDING', 'NORTH', 84, 53, 'IOE Building');
 
 /*
 // 2
@@ -139,4 +189,4 @@ let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuse
 */
 
 export { gameName, aboutText , locations, clockH, clockM,
-         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, bbaitsStops, routes};
+         bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a, locList};

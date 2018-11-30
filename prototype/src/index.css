@@ -154,7 +154,7 @@ html, body, #root{
 }
 
 .map-panel {
-  width: 100vh - 250px;
+  width: 100vw - 250px;
   height: 100vh;
   position: absolute;
   margin-left: 250px;
@@ -162,7 +162,7 @@ html, body, #root{
 }
 
 .map-img {
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
   background-image:   url("./components/resources/campusmap.jpg");
   background-size: cover;
@@ -272,8 +272,8 @@ html, body, #root{
 .dot{
   position: absolute;
   background: #FFCB05;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 2px solid #00274C;
 }
@@ -285,6 +285,7 @@ html, body, #root{
   text-align: left;
   font-size: 16px;
 }
+
 
 .bus-panel{
   top: 0px;
