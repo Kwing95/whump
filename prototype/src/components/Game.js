@@ -13,7 +13,7 @@ import {idc} from './variables.js';
 import {routes} from './variables.js';
 import {a} from './variables.js';
 import {locList} from './variables.js';
-
+import {mapper} from './variables.js';
 export default class Game extends Component {
 
   constructor(props){
