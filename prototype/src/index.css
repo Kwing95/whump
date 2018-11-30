@@ -169,8 +169,8 @@ html, body, #root{
 }
 
 .bus-stop {
-  width: 2vw;
-  height: 2vw;
+  width: 4vh;
+  height: 4vh;
   background-image: url("./components/resources/bus.png");
   background-size: cover;
 }
