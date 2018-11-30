@@ -35,9 +35,11 @@ let bursleyBaits  = new Bus("Bursley-Baits", 10);
 let commuterSouth = new Bus("Commuter South", 15);
 */
 
-function Buildings(id, name, options) {
+function Buildings(id, name, top, left, options) {
   this.id      = id;       // Unique ID (maybe should be different from building IDs too?)
   this.name    = name;     // Name of the building
+  this.top     = top + 1;
+  this.left    = left + 1;
   this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
 }
 
@@ -47,25 +49,25 @@ let mapper = {"BBB": 0, "Dude":1, "Pierpont":2, "EECS":3, "Walgreen": 4};
 // 0
 //let bbbOptions = {"Dude":2, "PierpontBBStop":3, "PierpontCSStop": 3};
 let bbbOptions = {1:2, 2:2, 3:1, 4:1};
-let bbb = new Buildings(0, "BBB", bbbOptions);
+let bbb = new Buildings(0, "BBB", 16, 41.2, bbbOptions);
 
 // 1
 //let pierpontOptions = {"Dude":2, "PierpontBBStop":1, "PierponstCSStop":2}
 let pierpontOptions = {0:2, 1:1, 3:4, 4:1};
-let pierpont = new Buildings(1, "Pierpont", pierpontOptions);
+let pierpont = new Buildings(1, "Pierpont", 51, 32, pierpontOptions);
 
 // 2
 //let dudeOptions = {"Pierpont": 2, "BBB": 2, "PierpontBBStop":3, "PierponstCSStop":2};
 let dudeOptions = {0:2, 2:1, 3:3, 4:1}
-let dude = new Buildings(2, "Dude", dudeOptions);
+let dude = new Buildings(2, "Dude", 47.5, 55.5, dudeOptions);
 
 // 3
 let eecsOptions = {0:2, 1:3, 2:4, 4:3};
-let eecs = new Buildings(3, "EECS", eecsOptions);
+let eecs = new Buildings(3, "EECS", 23.5, 72, eecsOptions);
 
 //4
 let walgreenOptions = {0:1, 1:1, 2:1, 3:3};
-let walgreen = new Buildings(4, "Walgreen", walgreenOptions);
+let walgreen = new Buildings(4, "Walgreen", 33, 29, walgreenOptions);
 
 let idc = {0: bbb, 1: dude, 2: pierpont, 3: eecs, 4: walgreen};
 
