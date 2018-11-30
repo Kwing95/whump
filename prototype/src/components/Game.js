@@ -80,7 +80,6 @@ export default class Game extends Component {
 
     let tempX = 2 * Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
     let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
-    
     let deltaX = Math.abs(tempX - this.state['posX']);
     let deltaY = Math.abs(tempY - this.state['posY']);
     
@@ -105,7 +104,8 @@ export default class Game extends Component {
     
     //this.currentLocation = dest.id;
     console.log(this.currentLocation);
-    if (this.currentLocation === end_submission) {
+    let tempCurLoc = mapper[this.currentLocation];
+    if (tempCurLoc === end_submission) {
       alert("You made it!");
     }
   }
@@ -235,11 +235,11 @@ export default class Game extends Component {
              onClick={(event) => {this.goToLoc('none', event)}}
              style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
-              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("bbb", event); event.stopPropagation();}}></div>
-              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("dude", event); event.stopPropagation();}}></div>
-                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc("walgreen", event); event.stopPropagation();}}></div>
-              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("eecs", event); event.stopPropagation();}}></div>
-              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("ppc", event); event.stopPropagation();}}></div>
+              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("BBB", event); event.stopPropagation();}}></div>
+              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("DUDE", event); event.stopPropagation();}}></div>
+                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc("Walgreen", event); event.stopPropagation();}}></div>
+              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("EECS", event); event.stopPropagation();}}></div>
+              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("Pierpont", event); event.stopPropagation();}}></div>
               
               <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc("Pierpont bus", event); event.stopPropagation();}}></div>
               <div class="bus-cooley bus-stop" onClick={(event) => {this.goToLoc("Cooley bus", event); event.stopPropagation();}}></div>
