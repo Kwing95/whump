@@ -72,8 +72,8 @@ export default class Game extends Component {
     
     return;*/
 
-    let tempX = Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollHeight);
-    let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
+    let tempX = Math.round(100 * (event.clientX - 250) / (document.getElementById("game-panel").scrollHeight + 30));
+    let tempY = Math.round(100 * (event.clientY) / (document.getElementById("game-panel").scrollHeight + 30));
     
     //alert(document.getElementById("game-screen").scrollWidth + " " + tempX);
 
@@ -211,7 +211,7 @@ export default class Game extends Component {
             </div>
           </nav>
           <div class="map-panel" id="game-screen" ref={this.gameScreen}>
-            <div class="north-img" onClick={(event) => {this.goToLoc('none', event)}}
+            <div id="game-panel" class="north-img" onClick={(event) => {this.goToLoc('none', event)}}
                  style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("bbb", event); event.stopPropagation();}}></div>
