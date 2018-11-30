@@ -34,6 +34,7 @@ export default class Game extends Component {
     }
     this.gameScreen = React.createRef();
     this.showBuses = false;
+    this.explore = false;
   }
   
   passTime(minutes){
@@ -102,8 +103,9 @@ export default class Game extends Component {
     //this.currentLocation = dest.id;
     console.log(this.currentLocation);
     let tempCurLoc = mapper[this.currentLocation];
-    if (tempCurLoc === end_submission) {
-      alert("You made it!");
+    if (tempCurLoc === end_submission && this.explore == false) {
+      alert("You made it! Feel free to continue exploring North Campus!");
+      this.explore = true;
     }
   }
   
