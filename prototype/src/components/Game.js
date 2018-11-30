@@ -214,11 +214,11 @@ export default class Game extends Component {
             <div id="game-panel" class="north-img" onClick={(event) => {this.goToLoc('none', event)}}
                  style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
-              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("bbb", event); event.stopPropagation();}}></div>
-              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("dude", event); event.stopPropagation();}}></div>
-                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc("walgreen", event); event.stopPropagation();}}></div>
-              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("eecs", event); event.stopPropagation();}}></div>
-              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("ppc", event); event.stopPropagation();}}></div>
+              <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("BBB", event); event.stopPropagation();}}></div>
+              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("Dude", event); event.stopPropagation();}}></div>
+                <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc("Walgreen", event); event.stopPropagation();}}></div>
+              <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("EECS", event); event.stopPropagation();}}></div>
+              <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("PPC", event); event.stopPropagation();}}></div>
               
               <div class="bus-ppc bus-stop" onClick={(event) => {this.goToLoc("Pierpont bus", event); event.stopPropagation();}}></div>
               <div class="bus-cooley bus-stop" onClick={(event) => {this.goToLoc("Cooley bus", event); event.stopPropagation();}}></div>
