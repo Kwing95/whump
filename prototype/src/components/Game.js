@@ -24,6 +24,19 @@ export default class Game extends Component {
                   'campus': 'north', 'route': 'Null',
                   'showBuses': false};
     this.currentLocation = start_submission;
+    var temp = idc[start_submission];
+    if(temp != undefined){
+      this.state = {'hour' : clockH, 'minute' : clockM,
+                    'css' : {'marginLeft' : temp.left + "%", 'marginTop' : temp.top + "%"},
+                    'posX' : 0, 'posY' : 0, 'station': 'ppc-bus',
+                    'campus': 'north'};
+    }
+    else{
+      this.state = {'hour' : clockH, 'minute' : clockM,
+                    'css' : {'marginLeft' : 0, 'marginTop' : 0},
+                    'posX' : 0, 'posY' : 0, 'station': 'ppc-bus',
+                    'campus': 'north'};
+    }
     this.gameScreen = React.createRef();
   }
   
