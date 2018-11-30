@@ -209,6 +209,7 @@ html, body, #root{
   position: absolute;
   height: 5%;
   width: 17.5%;
+  opacity: 0;
 }
 
 .dude-box{
@@ -217,6 +218,7 @@ html, body, #root{
   position: absolute;
   height: 13.5%;
   width: 13.5%;
+  opacity: 0;
 }
 
 .walgreen-box{
@@ -225,6 +227,7 @@ html, body, #root{
   position: absolute;
   height: 10%;
   width: 17.8%;
+  opacity: 0;
 }
 
 .eecs-box{
@@ -233,6 +236,7 @@ html, body, #root{
   position: absolute;
   height: 14%;
   width: 19%;
+  opacity: 0;
 }
 
 .pier-box{
@@ -242,6 +246,7 @@ html, body, #root{
   height: 7%;
   width: 16%;
   transform: rotate(-55deg);
+  opacity: 0;
 }
 
 .bus-ppc{
