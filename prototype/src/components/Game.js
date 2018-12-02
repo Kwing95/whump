@@ -236,7 +236,7 @@ export default class Game extends Component {
              style={{'visibility': (this.state['campus'] === 'north' ? 'visible' : 'hidden')}}>
               
               <div class="bbb-box user-here" id="0" onClick={(event) => {console.log(event.target.id); this.goToLoc("BBB", event); event.stopPropagation();}}></div>
-              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("DUDE", event); event.stopPropagation();}}></div>
+              <div class="dude-box user-here" id="2" onClick={(event) => {console.log(event.target.id); this.goToLoc("Dude", event); event.stopPropagation();}}></div>
                 <div class="walgreen-box user-here" id="4" onClick={(event) => {console.log(event.target.id); this.goToLoc("Walgreen", event); event.stopPropagation();}}></div>
               <div class="eecs-box user-here" id="3" onClick={(event) => {console.log(event.target.id); this.goToLoc("EECS", event); event.stopPropagation();}}></div>
               <div class="pier-box user-here" id="1" onClick={(event) => {console.log(event.target.id); this.goToLoc("Pierpont", event); event.stopPropagation();}}></div>
