@@ -107,8 +107,7 @@ export default class Game extends Component {
 
     //this.currentLocation = dest.id;
     console.log(this.currentLocation);
-    let tempCurLoc = mapper[this.currentLocation];
-    if (tempCurLoc === end_submission) {
+    if (this.currentLocation === end_submission) {
       alert("You made it!");
     }
   }
