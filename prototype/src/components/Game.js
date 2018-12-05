@@ -159,7 +159,7 @@ export default class Game extends Component {
                    {Object.keys(buses[this.state['station']])[i]}
                  </u></b>
                </td>);
-      row.push(<td>{Object.values(buses[this.state['station']])[i][1]}</td>);
+      row.push(<td>{Object.values(buses[this.state['station']])[i][1]} min</td>);
       table.push(<tr>{row}</tr>);
     }
     return table;
@@ -228,6 +228,10 @@ export default class Game extends Component {
               </select>
 
               <table class="schedule" id="schedule-table">
+                <tr>
+                  <td>Name</td>
+                  <td>Arr </td>
+                </tr>
                 {this.scheduleTable()}
               </table>
             </div>
