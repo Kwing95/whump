@@ -23,6 +23,8 @@ export default class Game extends Component {
                   'posX' : 0, 'posY' : 0, 'station': 'Pierpont bus',
                   'campus': 'north', 'route': 'Null',
                   'showBuses': false};
+    this.posX = 0;
+    this.posY = 0;
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
   }
@@ -80,9 +82,10 @@ export default class Game extends Component {
 
     let tempX = 2 * Math.round(100 * (event.clientX - 250) / document.getElementById("game-screen").scrollWidth);
     let tempY = Math.round(100 * (event.clientY) / document.getElementById("game-screen").scrollHeight);
-    let deltaX = Math.abs(tempX - this.state['posX']);
-    let deltaY = Math.abs(tempY - this.state['posY']);
-    
+    let deltaX = Math.abs(tempX - this.posX);
+    let deltaY = Math.abs(tempY - this.posY);
+    this.posX = tempX;
+    this.posY = tempY;
     tempX = event.clientX - 260;
     tempY = event.clientY - 10;
     
@@ -101,7 +104,7 @@ export default class Game extends Component {
       'posY': tempY,
       'css': {'marginLeft': tempX, 'marginTop': tempY}
     }));
-    
+
     //this.currentLocation = dest.id;
     console.log(this.currentLocation);
     let tempCurLoc = mapper[this.currentLocation];
