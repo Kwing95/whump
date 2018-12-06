@@ -2,7 +2,11 @@ import React from "react";
 
 const gameName = "Bus ta Move";
 
-const aboutText = "Click around the map to walk and explore the campus. Walk to a bus station and select a route to travel. Pay attention to the clock in the top left corner to help you get to class in time!";
+const clickInst = "Click around the map to walk and explore the campus.";
+
+const walkInst  = "Walk to a bus station and select a route to travel.";
+
+const clockInst = "Pay attention to the clock in the top left corner to make sure you get to class on time!";
 
 const locations = ['BBB', 'Dude', 'Pierpont', 'EECS', 'Walgreen'];
 
@@ -135,5 +139,5 @@ a.eecs = new Location('BUILDING', 'NORTH', 78, 30, 'EECS Building');
 a.dude = new Location('BUILDING', 'NORTH', 62, 51, 'Duderstadt');
 a.ioe = new Location('BUILDING', 'NORTH', 84, 53, 'IOE Building');
 
-export { gameName, aboutText , locations, clockH, clockM,
+export { gameName, clickInst, walkInst, clockInst , locations, clockH, clockM,
          bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a, locList};
