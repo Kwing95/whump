@@ -134,8 +134,9 @@ export default class Game extends Component {
       if(locList[i].n == dest){
         alert("Traveling to " + dest);
 
-        // passTime(bus_eta + travel_time);
+        this.passTime(buses["Pierpont bus"]["Com North"][1] + 1);
         this.setState(prevState => ({
+          'showBuses': false,
           'posX': locList[i].x,
           'posY': locList[i].y,
           'css': {'marginLeft': locList[i].x + "%", 'marginTop': locList[i].y + "%"}
