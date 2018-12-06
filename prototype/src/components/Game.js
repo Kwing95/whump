@@ -198,10 +198,11 @@ export default class Game extends Component {
         <div class="wrapper">
           <nav class="sidebar">
             <div class="clock-header">
+              <h3> Clock </h3>
               <h3> { this.state['hour'] } : { this.state['minute'] } </h3>
             </div>
-            <div class="sidebar-header">
-              <h3>Class Schedule</h3>
+            <div class="loc-header">
+              <h3>Location Info.</h3>
               <table class="schedule">
                 <tr>
                   <td>Starting</td>

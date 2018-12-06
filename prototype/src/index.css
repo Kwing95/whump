@@ -127,6 +127,17 @@ html, body, #root{
   min-height: 8vh;
 }
 
+.loc-header {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-color: #FFCB05;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  min-height: 30vh;
+}
+
 .sidebar-header {
   text-align: center;
   margin: 5px;
