@@ -6,34 +6,8 @@ const aboutText = "This game is intended to help teach you how to get to your cl
 
 const locations = ['BBB', 'Dude', 'Pierpont', 'EECS', 'Walgreen'];
 
-let clockH = 1;
-let clockM = 15;
-
-/*
-function Bus(name, freq) {
-  this.name = name; // Name of the bus
-  this.freq = freq; // Frequency of bus arrival
-  //this.time = time; // Start time of the bus
-}
-
-function BusStop(id, name, weight, busses, options) {
-  this.id      = id;     // Unique ID (maybe should be different from building IDs too?)
-  this.name    = name;   // Name of the bus station
-  this.weight  = weight; // Weight of the bus station
-  this.busses  = busses; // An Array of busses
-  this.options = options;  // An array of tuples of buildings you can go to and the time it takes to get to them
-}
-
-function User(currLoc, prevLoc, prevTim) {
-  this.currLoc = currLoc;
-  this.prevLoc = prevLoc;
-  this.prevTim = prevTim;
-}
-
-// Create busses
-let bursleyBaits  = new Bus("Bursley-Baits", 10);
-let commuterSouth = new Bus("Commuter South", 15);
-*/
+let clockH = 4;
+let clockM = 20;
 
 function Buildings(id, name, options) {
   this.id      = id;       // Unique ID (maybe should be different from building IDs too?)
@@ -160,33 +134,6 @@ a.ggbl = new Location('BUILDING', 'NORTH', 80, 18, "GG Brown Laboratory");
 a.eecs = new Location('BUILDING', 'NORTH', 78, 30, 'EECS Building');
 a.dude = new Location('BUILDING', 'NORTH', 62, 51, 'Duderstadt');
 a.ioe = new Location('BUILDING', 'NORTH', 84, 53, 'IOE Building');
-
-/*
-// 2
-let lorchOptions = {"EastQuadStop": 1, "CClittle": 3};
-let lorch = new Buildings(2, "Lorch", lorchOptions);
-
-// Create Bus Stops
-// 4
-let pierpontBBStopOptions = {"BBB": 3, "Pierpont":1, "Dude": 3};
-let pierpontBBStopBuses = [bursleyBaits];
-let pierpontBBBusStop = new BusStop(4, "Pierpont BB Bus Stop",0,pierpontBBStopBuses,pierpontBBStopOptions);
-
-//5
-let pierpontCStopOptions = {"BBB": 3, "Pierpont":1, "Dude": 3};
-let pierpontCSBusStopBuses = [commuterSouth];
-let pierpontCSBusStop = new BusStop(4, "Pierpont CS Bus Stop",0,pierpontCSBusStopBuses,pierpontCStopOptions);
-
-//6
-let ccLittleBusStopOptions = {"Lorch": 2, "EastQuadStop": 2};
-let ccLittleBusStopBuses = [commuterSouth];
-let ccLittleBusStop = new BusStop(4, "CC Little Bus Stop",0,ccLittleBusStopBuses,ccLittleBusStopOptions);
-
-//7
-let eastQuadBusStopOptions = {"CClittle": 2, "Lorch": 1};
-let eastQuadBusStopBuses = [commuterSouth];
-let eastQuadBustStop = new BusStop(4, "East Quad Bus Stop",0,eastQuadBusStopBuses,eastQuadBusStopOptions);
-*/
 
 export { gameName, aboutText , locations, clockH, clockM,
          bbb, pierpont, dude, eecs, walgreen, mapper, idc, buses, routes, a, locList};

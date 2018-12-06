@@ -25,7 +25,7 @@ html, body, #root{
 .btn-submit:hover{
   background-color:   #FFCB05;
   color:              #00274C;
-  transform:          scale(1.5);
+  transform:          scale(1.4);
   transition:         0.4s;
 }
 
@@ -39,7 +39,7 @@ html, body, #root{
 }
 
 .btn-choice:hover{
-  transform:          scale(2);
+  transform:          scale(1.2);
   transition:         0.4s;
 }
 

@@ -19,12 +19,12 @@ export default class Game extends Component {
   constructor(props){
     super(props);
     this.state = {'hour' : clockH, 'minute' : clockM,
-                  'css' : {'marginLeft' : 0, 'marginTop' : 0},
-                  'posX' : 0, 'posY' : 0, 'station': 'Pierpont bus',
+                  'css' : {'marginLeft' : a.walgreen.x + "%", 'marginTop' : a.walgreen.y + "%"},
+                  'posX' : a.walgreen.x + "%", 'posY' : a.walgreen.y + "%", 'station': 'Pierpont bus',
                   'campus': 'north', 'route': 'Null',
                   'showBuses': false};
-    this.posX = 0;
-    this.posY = 0;
+    this.posX = a.walgreen.x;
+    this.posY = a.walgreen.y;
     this.currentLocation = start_submission;
     this.gameScreen = React.createRef();
   }
