@@ -2,7 +2,7 @@ import React from "react";
 
 const gameName = "Bus ta Move";
 
-const aboutText = "This game is intended to help teach you how to get to your classes using the Ann Arbor busses quickly so you never have to miss class!";
+const aboutText = "Click around the map to walk and explore the campus. Walk to a bus station and select a route to travel. Pay attention to the clock in the top left corner to help you get to class in time!";
 
 const locations = ['BBB', 'Dude', 'Pierpont', 'EECS', 'Walgreen'];
 
