@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { mapper } from './variables.js';
 import { locations } from "./variables.js";
 
-let start_submission = locations[0];
+let start_submission = locations[4];
 let end_submission = locations[1];
 
 const Location = () => {
